@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/camp21-v11-home.css">
+  <link rel="stylesheet" href="css/camp21-final-fixes.css">
 </head>
 <body>
 
@@ -18,7 +19,6 @@
       <img class="brand-logo" src="assets/logos/logo-camp21.png" alt="CAMP21 Logo" onerror="this.style.display='none'">
       <div class="brand-text">
         <strong>CAMP21</strong>
-        <span>Synergising Literacies 2026</span>
       </div>
     </a>
 
@@ -32,8 +32,8 @@
         <a href="pages/participants.html" class="dropdown-trigger">SMART DT Hub ▾</a>
         <div class="dropdown-menu" aria-label="SMART DT Hub menu">
           <a href="pages/participants.html">Participant View</a>
-          <a href="pages/trainers.html">Pensyarah Pengiring View</a>
-          <a href="pages/trainers.html">Speaker / Facilitator View</a>
+          <a href="pages/trainers.html">Fasilitator Kumpulan View</a>
+          <a href="pages/trainers.html">Speakers / Trainers View</a>
           <a href="pages/organiser.html">Organiser View</a>
           <a href="pages/judges.html">Judge View</a>
         </div>
@@ -65,14 +65,8 @@
       <p class="hero-subtitle">A creative national experience for Politeknik Malaysia students to explore heritage, innovate with purpose, and shape meaningful solutions through Design Thinking.</p>
 
       <div class="hero-meta" aria-label="Programme date and location">
-        <div class="meta-pill">
-          <img class="meta-icon-img" src="assets/icons/icon-date.png" alt="" aria-hidden="true" onerror="this.style.display='none'">
-          <span>13 – 16 July 2026</span>
-        </div>
-        <div class="meta-pill">
-          <img class="meta-icon-img" src="assets/icons/icon-location.png" alt="" aria-hidden="true" onerror="this.style.display='none'">
-          <span>Kompleks Kraf Kuala Lumpur</span>
-        </div>
+        <div class="meta-pill"><span>13 – 16 July 2026</span></div>
+        <div class="meta-pill"><span>Kompleks Kraf Kuala Lumpur</span></div>
       </div>
 
       <div class="hero-actions">
@@ -83,7 +77,7 @@
 
     <div class="hero-visual v11-hero-visual" aria-label="CAMP21 cultural innovation visual">
       <div class="hero-location-chip">Kompleks Kraf KL</div>
-      <img src="assets/images/hero-kompleks-kraf.png" alt="CAMP21 cultural heritage and Kuala Lumpur hero visual" onerror="this.src='assets/images/hero-kompleks-kraf.png'">
+      <img src="assets/images/hero-kompleks-kraf.png" alt="CAMP21 cultural heritage and Kuala Lumpur hero visual" onerror="this.style.display='none'">
       <div class="hero-stat v11-hero-stat" aria-label="10 teams and 60 participants">
         <strong>10</strong>
         <span class="hero-stat-title">Teams</span>
@@ -109,28 +103,28 @@
 
       <a href="pages/trainers.html" class="v11-pathway-card">
         <div class="pathway-icon">🧭</div>
-        <h3>Pensyarah Pengiring</h3>
-        <p>Monitor team progress, support logistics and guide participant readiness.</p>
+        <h3>Fasilitator Kumpulan</h3>
+        <p>Support participant groups, monitor progress and assist programme activities.</p>
         <span class="pathway-link">View Guide →</span>
       </a>
 
       <a href="pages/trainers.html" class="v11-pathway-card">
         <div class="pathway-icon">🎤</div>
-        <h3>Speaker / Facilitator</h3>
+        <h3>Speakers / Trainers</h3>
         <p>Access session materials, workshop flow and facilitation support notes.</p>
         <span class="pathway-link">Open Materials →</span>
       </a>
 
       <a href="pages/organiser.html" class="v11-pathway-card">
         <div class="pathway-icon">👥</div>
-        <h3>Organiser</h3>
+        <h3>Organisers</h3>
         <p>Manage announcements, live updates, logistics and programme operations.</p>
         <span class="pathway-link">Open Dashboard →</span>
       </a>
 
       <a href="pages/judges.html" class="v11-pathway-card">
         <div class="pathway-icon">🏅</div>
-        <h3>Judge</h3>
+        <h3>Judges</h3>
         <p>Access pitching information, evaluation guide and judging resources.</p>
         <span class="pathway-link">Judge Portal →</span>
       </a>
@@ -197,7 +191,9 @@
         <h3>SDG Impact</h3>
         <p><strong>SDG 4 • SDG 11 • SDG 12</strong><br>Aligning creative outputs with quality education, sustainable cities and responsible consumption.</p>
         <div class="sdg-mini-row" aria-label="CAMP21 SDG focus">
-          <span>SDG 4</span><span>SDG 11</span><span>SDG 12</span>
+          <div class="sdg-logo-card"><img src="assets/icons/icon-sdg-4.png" alt="SDG 4"><span>Quality Education</span></div>
+          <div class="sdg-logo-card"><img src="assets/icons/icon-sdg-11.png" alt="SDG 11"><span>Sustainable Communities</span></div>
+          <div class="sdg-logo-card"><img src="assets/icons/icon-sdg-12.png" alt="SDG 12"><span>Responsible Consumption</span></div>
         </div>
       </div>
     </div>
@@ -249,19 +245,19 @@
     <div>
       <h4>User Access</h4>
       <a href="pages/participants.html">Participants</a>
-      <a href="pages/trainers.html">Pensyarah Pengiring</a>
-      <a href="pages/trainers.html">Speaker / Facilitators</a>
-      <a href="pages/organiser.html">Organiser</a>
-      <a href="pages/judges.html">Judge</a>
+      <a href="pages/trainers.html">Fasilitator Kumpulan</a>
+      <a href="pages/trainers.html">Speakers / Trainers</a>
+      <a href="pages/organiser.html">Organisers</a>
+      <a href="pages/judges.html">Judges</a>
     </div>
 
     <div>
       <h4>Organised By</h4>
-      <div class="footer-logos-standardized">
-        <div class="logo-card"><img src="assets/logos/logo-kpt.png" alt="KPT JPPKK"></div>
-        <div class="logo-card"><img src="assets/logos/logo-polycc.png" alt="POLYCC"></div>
-        <div class="logo-card"><img src="assets/logos/logo-pmkl.png" alt="Politeknik METrO Kuala Lumpur"></div>
-        <div class="logo-card"><img src="assets/logos/logo-kompleks-kraf.png" alt="Kompleks Kraf Kuala Lumpur"></div>
+      <div class="footer-logos-standardized organised-by-grid">
+        <div class="logo-card organised-by-card"><img src="assets/logos/logo-kpt.png" alt="KPT JPPKK"></div>
+        <div class="logo-card organised-by-card"><img src="assets/logos/logo-polycc.png" alt="POLYCC"></div>
+        <div class="logo-card organised-by-card"><img src="assets/logos/logo-pmkl.png" alt="Politeknik METrO Kuala Lumpur"></div>
+        <div class="logo-card organised-by-card"><img src="assets/logos/logo-kompleks-kraf.png" alt="Kompleks Kraf Kuala Lumpur"></div>
       </div>
     </div>
   </div>

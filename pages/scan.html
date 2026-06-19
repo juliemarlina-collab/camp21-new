@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAMP21: Automated Pass Gate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  
+  <style>
+    .gate-container {
+      max-width: 550px;
+      margin: 8rem auto;
+      text-align: center;
+      padding: 3.5rem 2.5rem;
+    }
+    .gate-status-indicator {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background-color: rgba(17,17,17,0.05);
+      margin: 0 auto 2rem;
+      display: grid;
+      place-items: center;
+      font-size: 2.2rem;
+      transition: var(--transition-smooth);
+    }
+  </style>
+</head>
+<body>
+
+  <main class="wide">
+    <!-- Clean, Open, Free-Flowing Visual Card -->
+    <div class="gate-container reveal active" style="background: #ffffff; border-radius: 28px; box-shadow: 0 15px 45px rgba(0,0,0,0.02);">
+      
+      <div id="gateVisual" class="gate-status-indicator">🔄</div>
+      
+      <h1 id="gateHeader" style="font-size: 1.8rem; font-weight: 900; text-transform: uppercase; margin-bottom: 0.5rem;">
+        Validating Gate Pass...
+      </h1>
+      
+      <p id="gateMessage" style="font-size: 1rem; color: #555; font-weight: 600; line-height: 1.5; margin-bottom: 2rem;">
+        Synchronizing session tokens with the central JPPKK &amp; METrO KL server database infrastructure. Please stand by.
+      </p>
+
+      <div id="sessionLabel" style="font-weight: 800; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; background: rgba(74,0,224,0.06); color: var(--neo-ultraviolet); padding: 0.5rem 1.2rem; border-radius: 999px; display: inline-block;">
+        Verifying Session...
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const gateVisual = document.getElementById('gateVisual');
+      const gateHeader = document.getElementById('gateHeader');
+      const gateMessage = document.getElementById('gateMessage');
+      const sessionLabel = document.getElementById('sessionLabel');
+
+      // 1. Extract session parameters out of the scanned QR link strings
+      const URLParameters = new URLSearchParams(window.location.search);
+      const targetSession = URLParameters.get('session') || "General_CheckIn";
+      sessionLabel.innerText = targetSession.replace(/_/g, ' ');
+
+      // 2. Pull local authentication state out of browser memory storage 
+      // (This object was saved locally when the user first logged in)
+      const cachedProfile = JSON.parse(localStorage.getItem('camp21User'));
+
+      if (!cachedProfile) {
+        // Redirection safeguard if a stranger or rogue client scans the badge layout
+        gateVisual.innerText = "❌";
+        gateVisual.style.backgroundColor = "rgba(255,81,47,0.1)";
+        gateHeader.innerText = "Access Blocked";
+        gateMessage.innerHTML = "No active user identity session found on this device. Please <a href='registration.html' style='color:var(--neo-ultraviolet); text-decoration:underline;'>log into the portal terminal</a> first.";
+        return;
+      }
+
+      // 3. Package and fire the background data array payload straight to the pipeline
+      const attendancePayload = {
+        action: "recordAttendance",
+        userTier: cachedProfile.userTier,
+        fullName: cachedProfile.fullName,
+        icNumber: cachedProfile.icNumber || cachedProfile.ic,
+        team: cachedProfile.team || "Staff",
+        sessionTag: targetSession
+      };
+
+      const WEB_APP_ENDPOINT_URL = "https://script.google.com/macros/s/AKfycbzEz02OBBVcGCqjaa6Wk6mHcGt5FnSGVEJJUDKDqjTbVzGDVxN9-FXoe9GT7s7LOMo/exec";
+
+      fetch(WEB_APP_ENDPOINT_URL, {
+        method: "POST",
+        mode: "cors",
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify(attendancePayload)
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.status === "success") {
+          // Dynamic interface response changes on successful verification
+          gateVisual.innerText = "✓";
+          gateVisual.style.backgroundColor = "var(--neo-jade)";
+          gateVisual.style.color = "var(--neo-ink)";
+          gateHeader.innerText = "Check-In Confirmed";
+          gateMessage.innerText = `Excellent, ${cachedProfile.fullName}. Your attendance milestone pass has been logged successfully for this tracking zone.`;
+        } else {
+          throw new Error(data.message);
+        }
+      })
+      .catch(err => {
+        gateVisual.innerText = "⚠️";
+        gateVisual.style.backgroundColor = "var(--neo-gold)";
+        gateHeader.innerText = "Sync Latency Detected";
+        gateMessage.innerText = "Network sync buffer encountered, but local parameters verified. Report directly to your assigned hall workspace.";
+      });
+    });
+  </script>
+</body>
+</html>

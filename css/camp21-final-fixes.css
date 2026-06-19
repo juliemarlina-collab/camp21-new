@@ -1,0 +1,154 @@
+/* ========================================================================== 
+   CAMP21 FINAL FIXES
+   Scope: header brand, hero info pills, SDG icon display, organised-by logos.
+   Load AFTER css/camp21-v11-home.css.
+   ========================================================================== */
+
+.v11-brand { min-width: 112px !important; gap: 0.55rem !important; }
+.v11-brand .brand-logo {
+  width: 38px !important; height: 38px !important; padding: 3px !important;
+  background: #fff !important; object-fit: contain !important;
+}
+.v11-brand .brand-text strong { font-size: 1.05rem !important; letter-spacing: 0.01em !important; }
+.v11-brand .brand-text span { display: none !important; }
+.v11-nav-wrap { gap: 0.85rem !important; }
+.v11-main-nav a, .dropdown-trigger { font-size: 0.8rem !important; padding: 0.68rem 0.72rem !important; }
+.v11-nav-actions .lang { min-width: 72px !important; text-align: center !important; background: transparent !important; }
+
+/* Hero info pills: do not use PNG date/location icons inside hero pills */
+.hero-meta { gap: 1rem !important; }
+.meta-pill {
+  padding: 0.95rem 1.55rem !important; min-height: 56px !important;
+  border-radius: 999px !important;
+}
+.meta-pill .meta-icon-img, .meta-pill img, .meta-pill .meta-icon { display: none !important; }
+
+.hero-title .hero-camp { font-size: clamp(3.25rem, 6.3vw, 5.8rem) !important; }
+.hero-title .hero-main { font-size: clamp(3rem, 5.8vw, 5.25rem) !important; }
+
+/* SDG logo cards */
+.sdg-mini-row {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 0.8rem !important;
+  margin-top: 1.2rem !important;
+}
+.sdg-logo-card {
+  background: #fff !important;
+  border: 1px solid rgba(32, 16, 62, 0.08) !important;
+  border-radius: 16px !important;
+  padding: 0.85rem !important;
+  min-height: 112px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.55rem !important;
+  box-shadow: 0 10px 24px rgba(32, 16, 62, 0.06) !important;
+  text-align: center !important;
+}
+.sdg-logo-card img { width: 58px !important; height: 58px !important; object-fit: contain !important; }
+.sdg-logo-card span {
+  font-weight: 900 !important; font-size: 0.76rem !important;
+  color: var(--v11-indigo) !important; line-height: 1.25 !important;
+}
+
+/* Organised by: rectangular, bigger, clearer logo holders */
+.footer-logos-standardized, .organised-by-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(140px, 1fr)) !important;
+  gap: 0.75rem !important;
+  margin-top: 0.8rem !important;
+}
+.footer-logos-standardized .logo-card, .organised-by-card {
+  min-height: 82px !important;
+  padding: 0.85rem 1rem !important;
+  border-radius: 16px !important;
+  background: #fff !important;
+  border: 1px solid rgba(217, 175, 55, 0.38) !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  box-shadow: 0 8px 20px rgba(32, 16, 62, 0.08) !important;
+}
+.footer-logos-standardized .logo-card img, .organised-by-card img {
+  max-height: 56px !important; width: auto !important; max-width: 150px !important; object-fit: contain !important;
+}
+.footer-brand-mini img {
+  width: 48px !important; height: 48px !important; object-fit: contain !important;
+  background: #fff !important; border-radius: 999px !important; padding: 4px !important;
+}
+
+/* Responsive rules aligned with universal sizing guideline */
+@media (max-width: 1199px) {
+  .wide { width: min(1120px, calc(100% - 32px)) !important; }
+}
+@media (max-width: 1023px) {
+  .v11-main-nav { display: none !important; }
+  .v11-nav-actions .menu-btn { display: inline-flex !important; align-items: center !important; justify-content: center !important; }
+  .v11-hero-grid { grid-template-columns: 1fr !important; }
+  .v11-hero-copy { order: 1 !important; }
+  .v11-hero-visual { order: 2 !important; }
+}
+@media (max-width: 767px) {
+  .wide { width: min(100% - 24px, 620px) !important; }
+  .v11-header { padding: 0.75rem 0 !important; }
+  .v11-nav-wrap { border-radius: 26px !important; }
+  .v11-nav-actions .lang, .v11-nav-actions .btn-small { display: none !important; }
+  .hero-title .hero-camp { font-size: clamp(2.55rem, 13vw, 4rem) !important; line-height: 1 !important; }
+  .hero-title .hero-main { font-size: clamp(2.4rem, 12vw, 3.8rem) !important; line-height: 1 !important; }
+  .hero-actions, .hero-meta { width: 100% !important; flex-direction: column !important; }
+  .hero-actions .btn, .meta-pill { width: 100% !important; justify-content: center !important; }
+  .v11-hero-visual { min-height: 300px !important; aspect-ratio: 16 / 10 !important; }
+  .sdg-mini-row, .footer-logos-standardized, .organised-by-grid { grid-template-columns: 1fr !important; }
+}
+
+
+/* ========================================================================== 
+   HERO CLEANUP: remove tagline spacing and align CTA buttons with info pills
+   ========================================================================== */
+.v11-hero-copy > .section-tag,
+.v11-hero-copy > .hero-microtag {
+  display: none !important;
+}
+
+.v11-hero-copy {
+  gap: 1.15rem !important;
+}
+
+.hero-title {
+  margin-top: 0.25rem !important;
+}
+
+.hero-meta,
+.hero-actions {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 1rem !important;
+  width: 100% !important;
+}
+
+.meta-pill,
+.hero-actions .btn {
+  min-height: 56px !important;
+  padding: 0 1.6rem !important;
+  border-radius: 999px !important;
+  font-size: 0.98rem !important;
+  line-height: 1 !important;
+}
+
+.meta-pill {
+  min-width: 235px !important;
+}
+
+.hero-actions .btn {
+  min-width: 210px !important;
+}
+
+@media (max-width: 767px) {
+  .meta-pill,
+  .hero-actions .btn {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+}

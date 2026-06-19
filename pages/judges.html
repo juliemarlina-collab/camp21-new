@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAMP21: Judge Evaluation Core</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800;900&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  
+  <!-- Global Style Sheet and Core Script Engine Linkage -->
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/main.js" defer></script>
+  
+  <style>
+    /* Specific Layout and Component Overrides */
+    .security-gate-wrapper {
+      min-height: 65vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .gate-card-clean {
+      max-width: 460px;
+      width: 100%;
+      text-align: center;
+      background: #ffffff;
+      padding: 3.5rem 2.5rem;
+      border-radius: var(--radius-sequence);
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.04);
+    }
+    .gate-pin-input {
+      width: 100%;
+      padding: 1.2rem;
+      border-radius: 999px;
+      border: 1px solid rgba(17, 17, 17, 0.15);
+      background-color: var(--bg-crisp);
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: 0.3em;
+      margin: 1.5rem 0;
+      color: var(--neo-ultraviolet);
+      transition: var(--transition-smooth);
+    }
+    .gate-pin-input:focus {
+      outline: none;
+      border-color: var(--neo-ultraviolet);
+      background-color: #fff;
+    }
+    
+    /* Main Evaluation Workspace Split Grid */
+    .portal-workspace {
+      display: none;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .portal-workspace.active {
+      display: grid;
+    }
+    
+    /* Free-flowing Queue Selection Items */
+    .queue-item-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.8rem;
+      background: #ffffff;
+      border-radius: 20px;
+      margin-bottom: 1.2rem;
+      cursor: pointer;
+      font-weight: 800;
+      transition: var(--transition-smooth);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+    }
+    .queue-item-link:hover, .queue-item-link.active {
+      background-color: var(--neo-jade);
+      color: var(--neo-ink);
+      transform: translateX(10px);
+    }
+    .queue-meta-text {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #555;
+      margin-top: 0.2rem;
+      transition: var(--transition-smooth);
+    }
+    .queue-item-link:hover .queue-meta-text, .queue-item-link.active .queue-meta-text {
+      color: rgba(17, 17, 17, 0.7);
+    }
+    
+    /* Clean Scoring Fields */
+    .score-entry-box {
+      width: 90px;
+      padding: 0.6rem;
+      border-radius: 12px;
+      border: 1px solid rgba(17, 17, 17, 0.15);
+      background: var(--bg-crisp);
+      text-align: center;
+      font-weight: 900;
+      font-size: 1.3rem;
+      transition: var(--transition-smooth);
+    }
+    .score-entry-box:focus {
+      outline: none;
+      border-color: var(--neo-ultraviolet);
+      background: #fff;
+    }
+    
+    /* Vibrant Sequence Style Total Summary Banner */
+    .sequence-total-banner {
+      background-color: var(--neo-ink);
+      color: #fff;
+      padding: 2rem;
+      border-radius: var(--radius-sequence);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 3rem;
+    }
+    
+    @media (max-width: 1024px) {
+      .portal-workspace { grid-template-columns: 1fr; gap: 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FIXED NAVIGATION HEADER -->
+  <header>
+    <div class="wide nav-wrap">
+      <a href="../index.html" class="brand">CAMP<span>21</span></a>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="programme.html">Timeline</a>
+        <a href="participants.html">Missions Hub</a>
+        <a href="https://wa.me/60126224979" target="_blank" class="btn-primary" style="background: var(--neo-tangerine);">Contact Help Desk</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PORTAL CONTENT FRAMEWORK -->
+  <main class="wide" style="padding-top: 4rem;">
+    
+    <!-- Editorial Page Title Header -->
+    <div style="margin-bottom: 4rem;" class="reveal">
+      <span style="color: var(--neo-tangerine); font-weight: 800; font-family: var(--font-serif); font-style: italic; font-size: 1.2rem; display: block; margin-bottom: 0.5rem;">Grand Evaluation ⚖️</span>
+      <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; line-height: 1.1;">Judge Evaluation Terminal</h1>
+      <p style="font-size: 1.15rem; color: #444; font-weight: 500; margin-top: 1rem;">Secure assessment terminal for the Day 4 final presentation panel. Enforced 5-minute pitch + 3-minute Q&amp;A sequence[cite: 2].</p>
+    </div>
+
+    <!-- STAGE A: PASSCODE AUTHORIZATION GATE -->
+    <div class="security-gate-wrapper" id="gatingOverlaySystem">
+      <div class="gate-card-clean reveal">
+        <div style="font-size: 3.5rem; margin-bottom: 0.5rem;">🔐</div>
+        <h3 style="text-transform: uppercase; font-size: 1.6rem; letter-spacing: -0.01em;">Panel Authentication</h3>
+        <p style="font-size: 0.95rem; color: #555; font-weight: 600; margin-top: 0.3rem;">Please provide your assigned 4-digit security code to unlock scoring vectors[cite: 2].</p>
+        <input type="password" id="passcodeField" class="gate-pin-input" maxlength="4" placeholder="••••">
+        <button type="button" class="btn-primary" style="width: 100%; padding: 1.1rem; font-size: 1rem;" onclick="authenticateGatePass()">Unlock Evaluation Metrics</button>
+      </div>
+    </div>
+
+    <!-- STAGE B: THE FREE-FLOW EVALUATION WORKSPACE (Hidden by default) -->
+    <div class="portal-workspace" id="judgeWorkspaceArea">
+      
+      <!-- LEFT WORKSPACE COLUMN: QUEUE LIST -->
+      <div>
+        <h3 style="font-size: 1.2rem; text-transform: uppercase; font-weight: 900; margin-bottom: 1.5rem; color: var(--neo-ultraviolet); letter-spacing: 0.05em;">Pitches Queue</h3>
+        <div id="queueContainer">
+          <!-- Active Team -->
+          <div class="queue-item-link active" onclick="switchScoringTarget('Team 01 · Wau Warriors', 'Politeknik METRO Kuala Lumpur', this)">
+            <div>
+              <div>01 · Wau Warriors</div>
+              <div class="queue-meta-text">Politeknik METRO Kuala Lumpur[cite: 2]</div>
+            </div>
+            <span style="font-size: 1.5rem;">→</span>
+          </div>
+          <!-- Secondary Team -->
+          <div class="queue-item-link" onclick="switchScoringTarget('Team 02 · Batik Blaze', 'Politeknik Port Dickson', this)">
+            <div>
+              <div>02 · Batik Blaze</div>
+              <div class="queue-meta-text">Politeknik Port Dickson[cite: 2]</div>
+            </div>
+            <span style="font-size: 1.5rem;">→</span>
+          </div>
+        </div>
+        
+        <!-- Free-Flow Operational Tie Breaker System Description -->
+        <div style="margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid rgba(17,17,17,0.1);">
+          <span style="color: var(--neo-tangerine); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; display: block; margin-bottom: 0.4rem;">⚖️ Tie-Breaker Protocol Matrix</span>
+          <p style="font-size: 0.9rem; font-weight: 500; color: #444; line-height: 1.5;">
+            If overall calculation yields tied final marks, placements resolve strictly following the isolated sequence rules established by Chief Judge Dr. Siti Zubaidah binti Ibrahim[cite: 2]:
+          </p>
+          <ol style="font-size: 0.85rem; font-weight: 700; margin-top: 0.8rem; padding-left: 1.2rem; display: grid; gap: 0.4rem; color: #111;">
+            <li>Step 1: Isolated evaluation value comparison of Cultural Heritage Relevance (Max 20)[cite: 2].</li>
+            <li>Step 2: Isolated evaluation value comparison of Prototype Quality (Max 20)[cite: 2].</li>
+            <li>Step 3: Final discretionary ruling announced exclusively by Chief Judge Dr. Siti Zubaidah[cite: 2].</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- RIGHT WORKSPACE COLUMN: INTERACTIVE SCORING CORE FORM -->
+      <div style="background: #ffffff; padding: 3rem; border-radius: var(--radius-sequence); box-shadow: 0 15px 45px rgba(0, 0, 0, 0.02);">
+        <div style="margin-bottom: 2.5rem; border-bottom: 1px solid rgba(17,17,17,0.08); padding-bottom: 1.5rem;">
+          <h2 id="currentTeamTitle" style="font-size: 2rem; text-transform: uppercase; letter-spacing: -0.02em; line-height: 1.1;">Team 01 · Wau Warriors</h2>
+          <p id="currentTeamSub" style="font-weight: 700; color: #555; font-size: 1rem; margin-top: 0.2rem;">Politeknik METRO Kuala Lumpur[cite: 2]</p>
+        </div>
+
+        <form id="evaluationScoringForm" oninput="calculateAggregatedTotal()">
+          
+          <!-- Metric 1 -->
+          <div class="neo-form-group" style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 2rem; border-bottom: 1px solid rgba(17,17,17,0.05); padding-bottom: 1.5rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <label style="font-weight: 900; font-size: 1.05rem;">1. Problem Understanding</label>
+              <input type="number" class="score-entry-box" min="0" max="20" value="0" required>
+            </div>
+            <p style="font-size: 0.9rem; color: #555; font-weight: 500;">User empathy mapping depth, cultural context validation, and verified artisan problem statements[cite: 2].</p>
+          </div>
+          
+          <!-- Metric 2 -->
+          <div class="neo-form-group" style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 2rem; border-bottom: 1px solid rgba(17,17,17,0.05); padding-bottom: 1.5rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <label style="font-weight: 900; font-size: 1.05rem;">2. Creativity &amp; Innovation</label>
+              <input type="number" class="score-entry-box" min="0" max="20" value="0" required>
+            </div>
+            <p style="font-size: 0.9rem; color: #555; font-weight: 500;">Originality of proposed concept and robust, responsible deployment of co-piloted AI tools[cite: 2].</p>
+          </div>
+
+          <!-- Metric 3 -->
+          <div class="neo-form-group" style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 2rem; border-bottom: 1px solid rgba(17,17,17,0.05); padding-bottom: 1.5rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <label style="font-weight: 900; font-size: 1.05rem; color: var(--neo-ultraviolet);">3. Cultural Heritage Relevance</label>
+              <input type="number" class="score-entry-box" min="0" max="20" value="0" style="border-color: rgba(74, 0, 224, 0.3);" required>
+            </div>
+            <p style="font-size: 0.9rem; color: #555; font-weight: 500;">Direct structural, architectural, or textile link to traditional Malaysian craft. **(Tie-Breaker #1)**[cite: 2].</p>
+          </div>
+
+          <!-- Metric 4 -->
+          <div class="neo-form-group" style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 2rem; border-bottom: 1px solid rgba(17,17,17,0.05); padding-bottom: 1.5rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <label style="font-weight: 900; font-size: 1.05rem; color: var(--neo-tangerine);">4. Prototype Quality</label>
+              <input type="number" class="score-entry-box" min="0" max="20" value="0" style="border-color: rgba(255, 81, 47, 0.3);" required>
+            </div>
+            <p style="font-size: 0.9rem; color: #555; font-weight: 500;">Visual fidelity of Concept Poster mockup and verified evidence of testing loop iteration. **(Tie-Breaker #2)**[cite: 2].</p>
+          </div>
+
+          <!-- Metric 5 -->
+          <div class="neo-form-group" style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 2rem; padding-bottom: 0.5rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <label style="font-weight: 900; font-size: 1.05rem;">5. Pitch &amp; Communication</label>
+              <input type="number" class="score-entry-box" min="0" max="20" value="0" required>
+            </div>
+            <p style="font-size: 0.9rem; color: #555; font-weight: 500;">Adherence to the formal 8-slide delivery sequence framework and confidence during live judge Q&amp;A defense[cite: 2].</p>
+          </div>
+
+          <!-- Solid Sequence Style Summary Banner Block -->
+          <div class="sequence-total-banner">
+            <div>
+              <div style="font-weight: 900; font-size: 1.3rem; text-transform: uppercase; letter-spacing: 0.02em;">Total Score</div>
+              <div style="font-size: 0.8rem; color: var(--neo-gold); font-weight: 700; margin-top: 0.2rem;">Aggregated across all independent matrix rubrics</div>
+            </div>
+            <div style="font-size: 3rem; font-weight: 900;" id="aggregatedTotalDisplay">0 <span style="font-size: 1.2rem; opacity: 0.5; font-weight: 700;">/ 100</span></div>
+          </div>
+
+          <button type="button" class="btn-primary" style="width: 100%; margin-top: 2rem; padding: 1.2rem; font-size: 1rem; background: var(--neo-ink);" onclick="submitEvaluationScores()">Transmit Scoring Vector</button>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- PORTAL INTERACTION LOGIC ENGINE -->
+  <script>
+    const PANEL_GATE_TOKEN = "1234"; // 4-digit soft gating security code parameters[cite: 2]
+
+    function authenticateGatePass() {
+      const fieldEntry = document.getElementById('passcodeField').value;
+      if (fieldEntry === PANEL_GATE_TOKEN) {
+        document.getElementById('gatingOverlaySystem').style.display = 'none';
+        document.getElementById('judgeWorkspaceArea').classList.add('active');
+      } else {
+        alert("Invalid Security Code Authorization Token. Please consult with the Secretariat Desk.");
+        document.getElementById('passcodeField').value = '';
+      }
+    }
+
+    function switchScoringTarget(teamName, institution, targetElement) {
+      document.querySelectorAll('.queue-item-link').forEach(item => item.classList.remove('active'));
+      targetElement.classList.add('active');
+      
+      document.getElementById('currentTeamTitle').innerText = teamName;
+      document.getElementById('currentTeamSub').innerText = institution;
+      
+      // Clean form fields for current team selection
+      document.getElementById('evaluationScoringForm').reset();
+      document.getElementById('aggregatedTotalDisplay').innerHTML = `0 <span style="font-size: 1.2rem; opacity: 0.5; font-weight: 700;">/ 100</span>`;
+    }
+
+    function calculateAggregatedTotal() {
+      const scoreInputs = document.querySelectorAll('.score-entry-box');
+      let runningSumTotal = 0;
+      
+      scoreInputs.forEach(input => {
+        let numericalVal = parseInt(input.value) || 0;
+        // Strict boundary protection: clamp inputs between 0 and 20 marks[cite: 2]
+        if (numericalVal > 20) { numericalVal = 20; input.value = 20; }
+        if (numericalVal < 0) { numericalVal = 0; input.value = 0; }
+        runningSumTotal += numericalVal;
+      });
+      
+      document.getElementById('aggregatedTotalDisplay').innerHTML = `${runningSumTotal} <span style="font-size: 1.2rem; opacity: 0.5; font-weight: 700;">/ 100</span>`;
+    }
+
+    function submitEvaluationScores() {
+      alert("Evaluation dataset verified and securely transmitted directly to the central registration sheets database[cite: 2].");
+    }
+  </script>
+</body>
+</html>

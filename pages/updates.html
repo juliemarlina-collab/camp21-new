@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAMP21: Live Broadcasts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800;900&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/main.js" defer></script>
+  
+  <style>
+    .filter-row-container {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+    .filter-badge-pill {
+      padding: 0.6rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      background: #ffffff;
+      border: 1px solid rgba(17,17,17,0.12);
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: var(--transition-smooth);
+    }
+    .filter-badge-pill.active, .filter-badge-pill:hover {
+      background: var(--neo-ink);
+      color: #fff;
+    }
+    
+    .sync-status-indicator {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--neo-ultraviolet);
+      margin-bottom: 1.5rem;
+    }
+    .pulse-dot {
+      width: 8px; height: 8px;
+      background-color: var(--neo-jade);
+      border-radius: 50%;
+      animation: statusPulse 1.8s infinite ease-in-out;
+    }
+    @keyframes statusPulse {
+      0% { opacity: 0.3; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.1); }
+      100% { opacity: 0.3; transform: scale(0.9); }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wide nav-wrap">
+      <a href="../index.html" class="brand">CAMP<span>21</span></a>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="programme.html">Timeline</a>
+        <a href="participants.html">Missions Hub</a>
+        <a href="https://t.me/+vTPGEFIaXMs5Mjhl" target="_blank" class="btn-primary">Join Telegram Channel</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wide" style="padding-top: 4rem;">
+    
+    <div style="max-width: 800px; margin-bottom: 4rem;" class="reveal">
+      <span style="color: var(--neo-tangerine); font-weight: 800; font-family: var(--font-serif); font-style: italic; font-size: 1.2rem; display: block; margin-bottom: 0.5rem;">Broadcast Stream 📡</span>
+      <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; line-height: 1.1;">Live Central Updates</h1>
+      <p style="font-size: 1.15rem; color: #444; font-weight: 500; margin-top: 1rem;">Real-time informational alerts pushed directly under the joint authority of the JPPKK and METrO KL Organizing Command Center.</p>
+    </div>
+
+    <section class="reveal" style="margin-bottom: 5rem;">
+      <div class="sequence-block seq-tangerine" style="min-height: auto; padding: 3rem;">
+        <span class="stage-badge" style="background: #fff; color: var(--neo-tangerine);">Pinned Day Briefing</span>
+        <h2 id="pinnedNoticeTitle" style="font-size: 2.2rem; font-weight: 900; text-transform: uppercase; margin-bottom: 1rem; color: #fff;">Day 3 Morning Protocol Deployment</h2>
+        <p id="pinnedNoticeBody" style="font-size: 1.15rem; font-weight: 600; line-height: 1.5; max-width: 900px;">
+          Attire check reminder: Smart-casual. Mr. Ram's strategic Pitching Input Session launches strictly at 9:00 AM inside the Main Seminar Hall before prototyping continues. Ensure your laptops are charged and team lot credentials are fully authenticated.
+        </p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 6rem;">
+      
+      <div class="sync-status-indicator class-reveal">
+        <div class="pulse-dot"></div>
+        <span id="dataPipelineStatusLabel">Polling real-time database updates from the SMART DT Hub...</span>
+      </div>
+
+      <div class="filter-row-container reveal">
+        <button class="filter-badge-pill active" onclick="filterBroadcastFeed('all')">All Feeds</button>
+        <button class="filter-badge-pill" onclick="filterBroadcastFeed('logistics')">Logistics 🚌</button>
+        <button class="filter-badge-pill" onclick="filterBroadcastFeed('deadlines')">Deadlines ⏰</button>
+        <button class="filter-badge-pill" onclick="filterBroadcastFeed('workshop')">Workshop Notes 💡</button>
+      </div>
+
+      <div id="centralLiveFeedStreamContainer">
+        
+        <div class="fluid-row reveal update-item-row" data-category="deadlines">
+          <div style="display: flex; flex-direction: column; gap: 0.2rem;">
+            <div style="font-weight: 800; font-size: 1.15rem;">Pitch Deck Hard Submission Window Lock</div>
+            <div style="font-size: 0.85rem; color: #666; font-weight: 600;">Pushed: 15 July 2026 · Day 3 afternoon</div>
+          </div>
+          <div style="font-weight: 700; max-width: 450px; font-size: 0.95rem; color: #333;">
+            The digital upload gate locks automatically at 9:00 PM. Submitted versions are final; no late edits will clear security.
+          </div>
+          <span class="meta-tag" style="background: var(--neo-ultraviolet); color:#fff; font-weight:900;">Urgent</span>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wide" style="text-align: center; font-weight: 700; color: rgba(255,255,255,0.4); font-size: 0.9rem;">
+      © 2026 CAMP21: Synergising Literacies. Administered under the joint deployment authority of JPPKK &amp; METrO KL.
+    </div>
+  </footer>
+
+  <script>
+    // Locked with your exact live script URL
+    const MASTER_APPS_SCRIPT_UPDATES_URL = 'https://script.google.com/macros/s/AKfycbzEz02OBBVcGCqjaa6Wk6mHcGt5FnSGVEJJUDKDqjTbVzGDVxN9-FXoe9GT7s7LOMo/exec';
+
+    async function synchronizeLiveBroadcasts() {
+      const stateLabel = document.getElementById('dataPipelineStatusLabel');
+      
+      try {
+        const response = await fetch(`${MASTER_APPS_SCRIPT_UPDATES_URL}?action=getAnnouncements`);
+        const dataset = await response.json();
+        
+        if (dataset && dataset.length > 0) {
+          rebuildBroadcastDOM(dataset);
+          stateLabel.innerText = "Synchronized directly with central web sheets console.";
+        }
+      } catch (error) {
+        console.warn("Serverless data lake unreachable. Retaining local backup configuration rules cleanly.");
+        stateLabel.innerText = "Offline Mode — Displaying cached structural timeline metrics.";
+      }
+    }
+
+    function rebuildBroadcastDOM(itemsArray) {
+      const container = document.getElementById('centralLiveFeedStreamContainer');
+      container.innerHTML = ''; 
+
+      itemsArray.forEach(msg => {
+        if (msg.isPinned === true || msg.isPinned === "TRUE") {
+          document.getElementById('pinnedNoticeTitle').innerText = msg.title;
+          document.getElementById('pinnedNoticeBody').innerText = msg.text;
+          return;
+        }
+
+        const row = document.createElement('div');
+        row.className = 'fluid-row reveal active update-item-row';
+        row.setAttribute('data-category', msg.category.toLowerCase());
+        
+        row.innerHTML = `
+          <div style="display: flex; flex-direction: column; gap: 0.2rem;">
+            <div style="font-weight: 800; font-size: 1.15rem;">${msg.title}</div>
+            <div style="font-size: 0.85rem; color: #666; font-weight: 600;">Pushed: ${msg.timestamp}</div>
+          </div>
+          <div style="font-weight: 700; max-width: 450px; font-size: 0.95rem; color: #333;">${msg.text}</div>
+          <span class="meta-tag" style="background: ${msg.category === 'Deadlines' ? 'var(--neo-tangerine)' : 'var(--neo-ultraviolet)'}; color:#fff; font-weight:900;">${msg.tagLabel}</span>
+        `;
+        container.appendChild(row);
+      });
+    }
+
+    function filterBroadcastFeed(categoryKey) {
+      document.querySelectorAll('.filter-badge-pill').forEach(btn => {
+        btn.classList.remove('active');
+        if(btn.innerText.toLowerCase().includes(categoryKey.toLowerCase()) || (categoryKey === 'all' && btn.innerText.includes('All'))) {
+          btn.classList.add('active');
+        }
+      });
+
+      document.querySelectorAll('.update-item-row').forEach(row => {
+        if (categoryKey === 'all' || row.getAttribute('data-category') === categoryKey) {
+          row.style.display = 'flex';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+
+    setInterval(synchronizeLiveBroadcasts, 60000);
+    window.addEventListener('DOMContentLoaded', synchronizeLiveBroadcasts);
+  </script>
+</body>
+</html>

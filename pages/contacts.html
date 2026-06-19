@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAMP21: Support Desk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800;900&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/main.js" defer></script>
+  
+  <style>
+    /* Clean Free-Flow Accordion System styling */
+    .faq-block-element {
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+      padding-bottom: 1.5rem;
+    }
+    .faq-title-trigger {
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: var(--neo-ink);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition-smooth);
+    }
+    .faq-title-trigger:hover {
+      color: var(--neo-ultraviolet);
+    }
+    .faq-body-panel {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #555;
+      line-height: 1.6;
+      margin-top: 0.8rem;
+      display: none;
+      padding-right: 2rem;
+    }
+    .faq-block-element.active .faq-body-panel {
+      display: block;
+    }
+    .faq-block-element.active .faq-title-trigger {
+      color: var(--neo-tangerine);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wide nav-wrap">
+      <a href="../index.html" class="brand">CAMP<span>21</span></a>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="programme.html">Timeline</a>
+        <a href="resources.html">Assets Vault</a>
+        <a href="https://t.me/+vTPGEFIaXMs5Mjhl" target="_blank" class="btn-primary" style="background: var(--neo-ultraviolet);">Telegram Community</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wide" style="padding-top: 4rem;">
+    
+    <div style="margin-bottom: 5rem; max-width: 800px;" class="reveal">
+      <span style="color: var(--neo-tangerine); font-weight: 800; font-family: var(--font-serif); font-style: italic; font-size: 1.2rem; display: block; margin-bottom: 0.5rem;">Support Desk 💬</span>
+      <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; line-height: 1.1;">Frictionless Help Desk</h1>
+      <p style="font-size: 1.15rem; color: #444; font-weight: 500; margin-top: 1rem;">Access role-based answers and contact the organizational secretariat safely without security leakage.</p>
+    </div>
+
+    <section class="reveal" style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; padding-bottom: 6rem; align-items: start;">
+      
+      <div>
+        <h3 style="font-size: 1.2rem; text-transform: uppercase; font-weight: 900; margin-bottom: 2rem; color: var(--neo-ultraviolet); letter-spacing: 0.05em;">Frequently Asked Queries</h3>
+        
+        <div class="faq-block-element" onclick="this.classList.toggle('active')">
+          <div class="faq-title-trigger">⏰ When is the hard deadline for slide submission? <span>＋</span></div>
+          <div class="faq-body-panel">All final presentation decks must be fully submitted via the app portal terminal by Day 3 at 9:00 PM strictly. Late submissions automatically trigger a lock state[cite: 44, 73].</div>
+        </div>
+
+        <div class="faq-block-element" onclick="this.classList.toggle('active')">
+          <div class="faq-title-trigger">⚖️ How do tie-breaker sequences resolve overall ties? <span>＋</span></div>
+          <div class="faq-body-panel">Ties collapse strictly following the isolated evaluation value of Cultural Heritage Relevance first, followed by the isolated Prototype Quality score. Chief Judge Dr. Siti Zubaidah renders ultimate decisions[cite: 68].</div>
+        </div>
+
+        <div class="faq-block-element" onclick="this.classList.toggle('active')">
+          <div class="faq-title-trigger">🔄 Do accompanying lecturers moderate their own polytechnics? <span>＋</span></div>
+          <div class="faq-body-panel">No. Accompanying lecturers operate as unbiased, rotating facilitators across all teams and are strictly barred from staying with groups originating from their home institutions[cite: 23, 73].</div>
+        </div>
+      </div>
+
+      <aside style="background: #ffffff; padding: 3rem 2.5rem; border-radius: var(--radius-sequence); box-shadow: 0 15px 45px rgba(0,0,0,0.02);">
+        <h3 style="text-transform: uppercase; font-size: 1.3rem; margin-bottom: 1rem; letter-spacing: -0.01em;">📍 Headquarters</h3>
+        <p style="font-size: 1rem; font-weight: 600; color: #333; line-height: 1.6;">
+          <strong>Kompleks Kraf Kuala Lumpur</strong><br>
+          Jalan Conlay, 50450 Kuala Lumpur[cite: 4].<br>
+          <br>
+          <strong>Cohort Accommodation:</strong><br>
+          Royale Chulan KL (Located 0.2 km from main venue)[cite: 6].
+        </p>
+        
+        <div style="margin-top: 2rem; border-top: 1px dashed rgba(17,17,17,0.1); padding-top: 2rem;">
+          <a href="https://wa.me/60126224979" target="_blank" class="btn-primary" style="width: 100%; text-align: center; display: block; background: var(--neo-jade); color: var(--neo-ink); font-weight: 900; border-radius: 12px; padding: 1rem;">Route Query to Front Desk</a>
+        </div>
+      </aside>
+
+    </section>
+  </main>
+</body>
+</html>

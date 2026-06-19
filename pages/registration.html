@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAMP21: Enrolment Terminal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800;900&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/main.js" defer></script>
+  
+  <style>
+    /* Specific Free-Flow Input Fields styling */
+    .terminal-field-group {
+      margin-bottom: 2rem;
+    }
+    .terminal-field-group label {
+      display: block;
+      font-weight: 800;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+      color: var(--neo-ink);
+      letter-spacing: 0.05em;
+    }
+    .terminal-input {
+      width: 100%;
+      padding: 1.2rem 1.5rem;
+      border-radius: 16px;
+      border: 1px solid rgba(17, 17, 17, 0.12);
+      background-color: #ffffff;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--neo-ink);
+      transition: var(--transition-smooth);
+    }
+    .terminal-input:focus {
+      outline: none;
+      border-color: var(--neo-ultraviolet);
+      background-color: #ffffff;
+      box-shadow: 0 10px 30px rgba(74, 0, 224, 0.05);
+    }
+    
+    /* Allocation Output Display Blocks */
+    .reveal-allocation-window {
+      display: none;
+      margin-top: 3rem;
+    }
+    .reveal-allocation-window.active {
+      display: block;
+    }
+    
+    .split-form-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 4rem;
+      align-items: start;
+      margin-top: 4rem;
+    }
+    
+    @media (max-width: 1024px) {
+      .split-form-layout { grid-template-columns: 1fr; gap: 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wide nav-wrap">
+      <a href="../index.html" class="brand">CAMP<span>21</span></a>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="programme.html">Timeline</a>
+        <a href="participants.html">Missions Hub</a>
+        <a href="https://smart-dt-project.netlify.app/welcome.html" target="_blank" class="btn-primary">Smart DT App</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wide" style="padding-top: 4rem;">
+    
+    <div style="max-width: 800px; margin-bottom: 2rem;" class="reveal">
+      <span style="color: var(--neo-tangerine); font-weight: 800; font-family: var(--font-serif); font-style: italic; font-size: 1.2rem; display: block; margin-bottom: 0.5rem;">Day 1 Activation Gate 🎲</span>
+      <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; line-height: 1.1;">Enrolment Terminal</h1>
+      <p style="font-size: 1.15rem; color: #444; font-weight: 500; margin-top: 1rem;">Execute your institutional verification parameters and launch your automated random cohort group allocation lot draw sequence.</p>
+    </div>
+
+    <section class="reveal" style="margin-top: 3rem; margin-bottom: 5rem;">
+      <div class="sequence-grid">
+        <div class="sequence-block seq-purple" style="min-height: 220px; padding: 2rem 1.5rem;">
+          <span class="stage-badge">Step 01</span>
+          <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;">Identify</h3>
+          <p style="font-size: 0.9rem;">Provide your official full name, identity card parameters, and select your registered polytechnic institution.</p>
+        </div>
+        
+        <div class="sequence-block seq-jade" style="min-height: 220px; padding: 2rem 1.5rem;">
+          <span class="stage-badge">Step 02</span>
+          <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;">Execute Lot</h3>
+          <p style="font-size: 0.9rem;">Trigger the serverless lottery matrix script engine to distribute role scopes and balances evenly across teams.</p>
+        </div>
+        
+        <div class="sequence-block seq-tangerine" style="min-height: 220px; padding: 2rem 1.5rem;">
+          <span class="stage-badge">Step 03</span>
+          <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;">Cluster</h3>
+          <p style="font-size: 0.9rem;">Instantly retrieve your workspace destination number, pair up with your Mission Buddy, and report to the hall.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="split-form-layout" style="padding-bottom: 6rem;">
+      
+      <div id="registrationInputStage" class="reveal" style="background: #ffffff; padding: 3.5rem 2.5rem; border-radius: var(--radius-sequence); box-shadow: 0 15px 45px rgba(0, 0, 0, 0.02);">
+        <h3 style="text-transform: uppercase; font-size: 1.6rem; margin-bottom: 1.5rem; letter-spacing: -0.01em;">Participant Parameters</h3>
+        
+        <form id="camp21EnrolmentPipeline" onsubmit="triggerLotteryAllocationMatrix(); return false;">
+          <div class="terminal-field-group">
+            <label>Full Name (As per IC)</label>
+            <input type="text" class="terminal-input" placeholder="e.g. Ahmad bin Muhammad" required>
+          </div>
+          
+          <div class="terminal-field-group">
+            <label>Identity Card (IC) Number</label>
+            <input type="text" class="terminal-input" placeholder="e.g. 050101101234" maxlength="12" required>
+          </div>
+          
+          <div class="terminal-field-group">
+            <label>Polytechnic Institution</label>
+            <input type="text" class="terminal-input" placeholder="e.g. Politeknik Port Dickson" required>
+          </div>
+          
+          <button type="submit" id="pipelineSubmitBtn" class="btn-primary" style="width: 100%; padding: 1.2rem; font-size: 1rem; background: var(--neo-ink); margin-top: 1rem;">
+            Execute Random Team Assignment Matrix →
+          </button>
+        </form>
+      </div>
+
+      <aside>
+        <div id="allocationRevealPlaceholder" class="reveal" style="padding: 2rem; border: 2px dashed rgba(17,17,17,0.15); border-radius: var(--radius-sequence); text-align: center; color: #777;">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">🎰</div>
+          <h4 style="text-transform: uppercase; font-size: 1.1rem; font-weight: 800; color: var(--neo-ink);">Awaiting Matrix Execution</h4>
+          <p style="font-size: 0.95rem; font-weight: 500; margin-top: 0.3rem;">Fill out the parameters and execute the lot system to generate your team placement and structural mission role.</p>
+        </div>
+
+        <div id="allocationSuccessWindow" class="reveal-allocation-window sequence-block seq-purple" style="box-shadow: 0 20px 40px rgba(74, 0, 224, 0.15); padding: 3rem 2.5rem;">
+          <span class="stage-badge" style="background: var(--neo-gold); color: var(--neo-ink);">Allocation Successful 🎉</span>
+          <h2 style="font-size: 2rem; text-transform: uppercase; margin-bottom: 0.5rem; color: #fff;">Assignment Verified</h2>
+          <p style="font-size: 1.1rem; font-weight: 600; color: rgba(255,255,255,0.9); margin-bottom: 2rem;">Your automated vector group and role configuration is:</p>
+          
+          <div style="display: flex; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap;">
+            <div id="assignedTeamDisplay" style="font-size: 1.5rem; font-weight: 900; background: #fff; color: var(--neo-ultraviolet); padding: 0.8rem 1.8rem; border-radius: 16px; text-transform: uppercase; border: 2px solid var(--neo-gold);">--</div>
+            <div id="assignedRoleDisplay" style="font-size: 1.5rem; font-weight: 900; background: var(--neo-tangerine); color: #fff; padding: 0.8rem 1.8rem; border-radius: 16px; text-transform: uppercase;">--</div>
+          </div>
+          
+          <div style="font-size: 0.95rem; background: rgba(255,255,255,0.1); border-radius: 16px; padding: 1.5rem; line-height: 1.6; color: #fff; font-weight: 500;">
+            <strong style="color: var(--neo-gold); text-transform: uppercase; font-size: 0.85rem; display: block; margin-bottom: 0.4rem;">🎯 Next Operational Steps:</strong>
+            1. Report directly to your assigned physical team cluster inside the Main Hall.<br>
+            2. Launch your student workspace parameters inside the companion SMART DT App.<br>
+            3. Coordinate with your group to map out your Phase 01 video collection milestones.
+          </div>
+        </div>
+      </aside>
+
+    </section>
+  </main>
+
+  <footer>
+    <div class="wide" style="text-align: center; font-weight: 700; color: rgba(255,255,255,0.4); font-size: 0.9rem;">
+      © 2026 CAMP21: Synergising Literacies. Core registration matrix automated under the joint authority of JPPKK &amp; METrO KL.
+    </div>
+  </footer>
+
+  <script>
+    function triggerLotteryAllocationMatrix() {
+      const submitBtn = document.getElementById('pipelineSubmitBtn');
+      submitBtn.innerText = "Processing Matrix Allocation...";
+      submitBtn.disabled = true;
+
+      const submissionPayload = {
+        name: document.querySelector('input[placeholder="e.g. Ahmad bin Muhammad"]').value,
+        ic: document.querySelector('input[placeholder="e.g. 050101101234"]').value,
+        polytechnic: document.querySelector('input[placeholder="e.g. Politeknik Port Dickson"]').value
+      };
+
+      // Locked with your exact live script URL
+      const WEB_APP_ENDPOINT_URL = "https://script.google.com/macros/s/AKfycbzEz02OBBVcGCqjaa6Wk6mHcGt5FnSGVEJJUDKDqjTbVzGDVxN9-FXoe9GT7s7LOMo/exec";
+
+      fetch(WEB_APP_ENDPOINT_URL, {
+        method: "POST",
+        mode: "cors",
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify(submissionPayload)
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.status === "success" || data.status === "exists") {
+          document.getElementById('assignedTeamDisplay').innerText = data.team;
+          document.getElementById('assignedRoleDisplay').innerText = data.role;
+
+          document.getElementById('allocationRevealPlaceholder').style.display = 'none';
+          document.getElementById('allocationSuccessWindow').classList.add('active');
+          submitBtn.innerText = "Enrolment Logged Successfully";
+        } else {
+          alert("System Alert: " + data.message);
+          submitBtn.innerText = "Execute Random Team Assignment Matrix →";
+          submitBtn.disabled = false;
+        }
+      })
+      .catch(err => {
+        console.error("Pipeline failure:", err);
+        alert("Connection timeout. Retaining network safety buffers.");
+        submitBtn.innerText = "Execute Random Team Assignment Matrix →";
+        submitBtn.disabled = false;
+      });
+    }
+  </script>
+</body>
+</html>

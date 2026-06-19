@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAMP21: Organiser Command Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800;900&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  
+  <!-- Core Design System Integration Links -->
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/main.js" defer></script>
+  
+  <style>
+    /* Custom Free-Flow Form Overrides */
+    .admin-input-group {
+      margin-bottom: 2rem;
+    }
+    .admin-input-group label {
+      display: block;
+      font-weight: 800;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+      color: var(--neo-ink);
+      letter-spacing: 0.05em;
+    }
+    .admin-field {
+      width: 100%;
+      padding: 1.1rem 1.5rem;
+      border-radius: 16px;
+      border: 1px solid rgba(17, 17, 17, 0.12);
+      background-color: #ffffff;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--neo-ink);
+      transition: var(--transition-smooth);
+    }
+    .admin-field:focus {
+      outline: none;
+      border-color: var(--neo-ultraviolet);
+      box-shadow: 0 0 0 4px rgba(74, 0, 224, 0.05);
+    }
+    
+    /* Interactive Split Panel */
+    .command-split-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 4rem;
+      margin-top: 5rem;
+      align-items: start;
+    }
+    
+    @media (max-width: 1024px) {
+      .command-split-grid { grid-template-columns: 1fr; gap: 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FIXED NAVIGATION HEADER -->
+  <header>
+    <div class="wide nav-wrap">
+      <a href="../index.html" class="brand">CAMP<span>21</span></a>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="programme.html">Timeline</a>
+        <a href="participants.html">Missions Hub</a>
+        <span class="meta-tag" style="background: var(--neo-tangerine); color: #fff; font-weight: 900; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.75rem;">Command Mode</span>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT SURFACE -->
+  <main class="wide" style="padding-top: 4rem;">
+    
+    <!-- Open Editorial Header Area -->
+    <div style="max-width: 850px; margin-bottom: 4rem;" class="reveal">
+      <span style="color: var(--neo-tangerine); font-weight: 800; font-family: var(--font-serif); font-style: italic; font-size: 1.2rem; display: block; margin-bottom: 0.5rem;">Secretariat Console ⚙️</span>
+      <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; line-height: 1.1;">Organisers Command Hub</h1>
+      <p style="font-size: 1.15rem; color: #444; font-weight: 500; margin-top: 1rem;">Central management workspace for JPPKK and METrO KL administrators. Dispatch morning alerts, cross-verify compliance tracks, and monitor cohort data parameters.</p>
+    </div>
+
+    <!-- OPERATIONAL COMMAND VECTOR MODULES (Mix-Match Color Sequence Blocks matching image_4afb20.png) -->
+    <section style="margin-top: 2rem;">
+      <h2 style="font-size: 2rem; font-weight: 900; text-transform: uppercase; margin-bottom: 2rem; letter-spacing: -0.01em;">Operational Vectors</h2>
+      
+      <div class="sequence-grid reveal">
+        
+        <!-- Pillar 1 Block -->
+        <article class="sequence-block seq-purple">
+          <span class="stage-badge">Vector 01</span>
+          <h3>Web System<br>Control 🌐</h3>
+          <p>Maintain the central hub, monitor active role paths, map registration endpoints, and push real-time updates directly to student devices.</p>
+        </article>
+
+        <!-- Pillar 2 Block -->
+        <article class="sequence-block seq-jade">
+          <span class="stage-badge">Vector 02</span>
+          <h3>Logistics &amp;<br>Venues 🚌</h3>
+          <p>Coordinate morning pick-up schedules, manage access parameters for Kompleks Kraf, and handle hotel room allocation with Royale Chulan KL.</p>
+        </article>
+
+        <!-- Pillar 3 Block -->
+        <article class="sequence-block seq-tangerine">
+          <span class="stage-badge">Vector 03</span>
+          <h3>Media &amp;<br>Analytics 📊</h3>
+          <p>Audit official camp hashtags, aggregate TikTok engagement timelines, and arrange physical showcase materials for the Day 4 Gallery Walk.</p>
+        </article>
+
+        <!-- Pillar 4 Block -->
+        <article class="sequence-block seq-dark">
+          <span class="stage-badge">Vector 04</span>
+          <h3>Judging<br>Coordination 🏆</h3>
+          <p>Distribute secure evaluation links to the panel, monitor live score submissions, apply tie-breaker sequence protocols, and print certificates.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- TWO-COLUMN BROADCAST INTERFACE & REVENUE EXPORTS -->
+    <section class="command-split-grid padded-bottom" style="padding-bottom: 6rem;">
+      
+      <!-- LEFT FIELD: ASYNCHRONOUS NOTICE DISPATCHER -->
+      <div class="reveal" style="background: #ffffff; padding: 3.5rem 2.5rem; border-radius: var(--radius-sequence); box-shadow: 0 15px 45px rgba(0, 0, 0, 0.02);">
+        <h3 style="text-transform: uppercase; font-size: 1.6rem; margin-bottom: 0.5rem; color: var(--neo-ultraviolet); letter-spacing: -0.01em;">Broadcast Central Alert</h3>
+        <p style="font-size: 0.95rem; color: #555; font-weight: 600; margin-bottom: 2rem;">Push instant notifications directly to participant and facilitator workspace headers.</p>
+        
+        <form onsubmit="alert('Alert successfully transmitted to all active user channels.'); this.reset(); return false;">
+          <div class="admin-input-group">
+            <label>Target Audience Tier</label>
+            <select class="admin-field">
+              <option>🚨 Critical Camp Alert (Broadcast to All Channels)</option>
+              <option>💡 Faculty Instruction (Trainers &amp; Lecturers Only)</option>
+              <option>🎬 Social Deadline Reminder (Participants Only)</option>
+            </select>
+          </div>
+          
+          <div class="admin-input-group">
+            <label>Message Payload String</label>
+            <textarea class="admin-field" style="height: 120px; resize: none; border-radius: 16px;" placeholder="Type notice parameters here..." required></textarea>
+          </div>
+          
+          <button type="submit" class="btn-primary" style="width: 100%; padding: 1.1rem; background: var(--neo-ink); font-size: 1rem;">Execute Alert Dispatch Pipeline</button>
+        </form>
+      </div>
+
+      <!-- RIGHT FIELD: UNBOXED RUNNING MONITOR LOGS -->
+      <div class="reveal" style="padding-top: 1rem;">
+        <h3 style="text-transform: uppercase; font-size: 1.4rem; margin-bottom: 1.5rem; letter-spacing: -0.01em;">Live Operational Logs</h3>
+        
+        <div class="fluid-row" style="padding: 1.8rem 0;">
+          <div>
+            <div style="font-weight: 800; font-size: 1.1rem;">Morning Shuttle Route Loop</div>
+            <div style="font-size: 0.9rem; color: #555; font-weight: 600; margin-top: 0.1rem;">Royale Chulan KL ➔ Main Craft Hall</div>
+          </div>
+          <span style="background: var(--neo-jade); color: var(--neo-ink); font-weight: 800; font-size: 0.75rem; padding: 0.3rem 0.8rem; border-radius: 4px; text-transform: uppercase;">Active</span>
+        </div>
+
+        <div class="fluid-row" style="padding: 1.8rem 0;">
+          <div>
+            <div style="font-weight: 800; font-size: 1.1rem;">Digital Scoring Matrix Pipeline</div>
+            <div style="font-size: 0.9rem; color: #555; font-weight: 600; margin-top: 0.1rem;">Active link delivery parameters dispatched to panel</div>
+          </div>
+          <span style="background: var(--neo-jade); color: var(--neo-ink); font-weight: 800; font-size: 0.75rem; padding: 0.3rem 0.8rem; border-radius: 4px; text-transform: uppercase;">Ready</span>
+        </div>
+        
+        <div style="margin-top: 3.5rem;">
+          <button type="button" class="btn-primary" style="background: transparent; color: var(--neo-ink); border: 2px solid var(--neo-ink); width: 100%; padding: 1.1rem; font-size: 1rem;" onclick="alert('Compiling relational student parameters... Exporting registration log spreadsheet package.')">
+            Export Raw Enrolment Database (.CSV)
+          </button>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wide" style="text-align: center; font-weight: 700; color: rgba(255,255,255,0.4); font-size: 0.9rem;">
+      © 2026 CAMP21: Synergising Literacies. Supervised under the combined administrative deployment authority of JPPKK &amp; METrO KL.
+    </div>
+  </footer>
+
+</body>
+</html>

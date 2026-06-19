@@ -571,3 +571,227 @@ a { color: inherit; text-decoration: none; }
   .v11-pathway-card h3 { min-height: auto; }
   .v11-hero-stat { transform: scale(.74) !important; }
 }
+
+
+/* ========================================================================== 
+   V18 RESPONSIVE SIZING + HEADER BRAND + ICON ASSET MAPPING
+   Applied after V17 so it safely overrides old sizing without redesigning colour.
+   ========================================================================== */
+
+/* Global responsive container and section rhythm */
+.wide {
+  width: min(1180px, calc(100% - 32px)) !important;
+  margin-inline: auto !important;
+}
+.hero-grid.v11-hero-grid {
+  width: min(1240px, calc(100% - 32px)) !important;
+}
+.v11-hero-section,
+.v11-pathway-section,
+.v11-programme-section,
+.v11-framework-section,
+.v11-final-cta {
+  padding-top: clamp(48px, 7vw, 80px) !important;
+  padding-bottom: clamp(48px, 7vw, 80px) !important;
+}
+
+/* Header brand: logo + CAMP21 only */
+.v11-brand {
+  min-width: 118px !important;
+  gap: .55rem !important;
+}
+.v11-brand .brand-logo {
+  width: 38px !important;
+  height: 38px !important;
+  padding: 3px !important;
+}
+.v11-brand .brand-text strong {
+  font-size: 1rem !important;
+  line-height: 1 !important;
+  letter-spacing: .02em !important;
+}
+.v11-brand .brand-text span {
+  display: none !important;
+}
+.v11-nav-wrap {
+  min-height: 64px !important;
+  padding: .5rem .65rem !important;
+}
+.v11-main-nav a,
+.dropdown-trigger {
+  font-size: .81rem !important;
+  padding: .72rem .72rem !important;
+}
+.v11-nav-actions .lang {
+  min-width: 72px !important;
+  padding: .72rem .85rem !important;
+}
+
+/* Hero: responsive 55/45 layout, text first on mobile */
+.v11-hero-grid {
+  grid-template-columns: 1.1fr .9fr !important;
+  gap: clamp(32px, 5vw, 56px) !important;
+  align-items: center !important;
+}
+.hero-title .hero-camp {
+  font-size: clamp(3rem, 6.4vw, 5.6rem) !important;
+  line-height: .96 !important;
+}
+.hero-title .hero-main {
+  font-size: clamp(2.8rem, 6vw, 5.1rem) !important;
+  line-height: .98 !important;
+}
+.v11-hero-copy .hero-subtitle {
+  font-size: clamp(.98rem, 1.45vw, 1.1rem) !important;
+  line-height: 1.7 !important;
+}
+.v11-hero-visual {
+  aspect-ratio: 4 / 3 !important;
+  min-height: 0 !important;
+  height: auto !important;
+}
+.v11-hero-visual img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+/* Hero info icon pills */
+.meta-pill {
+  gap: .65rem !important;
+}
+.meta-icon-img {
+  width: 24px !important;
+  height: 24px !important;
+  object-fit: contain !important;
+  flex: 0 0 24px !important;
+}
+
+/* Equal-height cards across key sections */
+.v11-pathway-grid,
+.v11-programme-grid,
+.v11-framework-grid {
+  align-items: stretch !important;
+}
+.v11-pathway-card,
+.v11-day-card,
+.v11-framework-col {
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+.v11-pathway-card .pathway-link,
+.v11-day-card .btn,
+.v11-framework-col .framework-chip-row,
+.v11-framework-col .sdg-icon-row {
+  margin-top: auto !important;
+}
+
+/* SDG icon cards */
+.sdg-icon-row {
+  display: grid;
+  gap: .7rem;
+  margin-top: 1rem;
+}
+.sdg-icon-card {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: .7rem;
+  align-items: center;
+  background: #fff;
+  border: 1px solid rgba(32,16,62,.08);
+  border-radius: 16px;
+  padding: .75rem;
+  box-shadow: 0 8px 18px rgba(32,16,62,.04);
+}
+.sdg-icon-card img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+}
+.sdg-icon-card span {
+  color: var(--v11-text-muted);
+  font-size: .86rem;
+  line-height: 1.35;
+  font-weight: 750;
+}
+.sdg-icon-card strong {
+  display: block;
+  color: var(--v11-purple);
+  font-size: .86rem;
+  font-weight: 950;
+}
+
+/* PC / small desktop */
+@media (max-width: 1199px) {
+  .wide { width: min(1120px, calc(100% - 32px)) !important; }
+  .v11-main-nav a,
+  .dropdown-trigger { font-size: .78rem !important; padding-inline: .58rem !important; }
+  .v11-nav-actions .btn-primary { padding-inline: .9rem !important; }
+}
+
+/* Tablet */
+@media (max-width: 1023px) {
+  .v11-main-nav { display: none !important; }
+  .v11-nav-actions .menu-btn { display: inline-flex !important; }
+  .v11-hero-grid {
+    grid-template-columns: 1fr !important;
+    text-align: left !important;
+    gap: 32px !important;
+  }
+  .v11-hero-copy { order: 1 !important; align-items: flex-start !important; }
+  .v11-hero-visual { order: 2 !important; max-width: 760px !important; width: 100% !important; }
+  .v11-pathway-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .v11-programme-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .v11-framework-grid { grid-template-columns: 1fr !important; }
+  .footer-grid-v11 { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* Phone */
+@media (max-width: 767px) {
+  .wide,
+  .hero-grid.v11-hero-grid { width: min(100% - 28px, 1180px) !important; }
+  .v11-hero-section,
+  .v11-pathway-section,
+  .v11-programme-section,
+  .v11-framework-section,
+  .v11-final-cta {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+  .v11-nav-wrap { border-radius: 26px !important; min-height: 58px !important; }
+  .v11-brand .brand-logo { width: 34px !important; height: 34px !important; }
+  .v11-brand .brand-text strong { font-size: .95rem !important; }
+  .v11-nav-actions .lang { display: none !important; }
+  .v11-nav-actions .btn-primary { display: none !important; }
+  .hero-title .hero-camp { font-size: clamp(2.45rem, 13vw, 4rem) !important; }
+  .hero-title .hero-main { font-size: clamp(2.35rem, 12vw, 3.8rem) !important; }
+  .hero-actions { width: 100% !important; flex-direction: column !important; }
+  .hero-actions .btn { width: 100% !important; }
+  .hero-meta { width: 100% !important; }
+  .meta-pill { width: 100% !important; }
+  .v11-hero-visual { aspect-ratio: 16 / 10 !important; border-radius: 22px !important; }
+  .v11-hero-stat { transform: scale(.72) !important; right: 10px !important; bottom: 10px !important; }
+  .v11-pathway-grid,
+  .v11-programme-grid { grid-template-columns: 1fr !important; }
+  .v11-day-card,
+  .v11-pathway-card { min-height: auto !important; }
+  .v11-final-buttons { width: 100% !important; flex-direction: column !important; }
+  .v11-final-buttons .btn { width: 100% !important; }
+  .footer-grid-v11 { grid-template-columns: 1fr !important; }
+  .footer-logos-standardized { grid-template-columns: 1fr 1fr !important; }
+  .logo-card img { max-height: 34px !important; }
+}
+
+/* Small phone */
+@media (max-width: 480px) {
+  .wide,
+  .hero-grid.v11-hero-grid { width: min(100% - 22px, 1180px) !important; }
+  .v11-brand { min-width: auto !important; }
+  .section-title { font-size: clamp(1.85rem, 10vw, 2.55rem) !important; }
+  .section-desc { font-size: .95rem !important; }
+  .hero-title .hero-camp { font-size: clamp(2.15rem, 14vw, 3.25rem) !important; }
+  .hero-title .hero-main { font-size: clamp(2.05rem, 13vw, 3.05rem) !important; }
+  .sdg-icon-card { grid-template-columns: 44px 1fr; }
+  .sdg-icon-card img { width: 44px; height: 44px; }
+}

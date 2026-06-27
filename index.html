@@ -1,543 +1,367 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CAMP21: Synergising Literacies 2026</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,600&display=swap" rel="stylesheet">
-
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet" />
   <style>
-    /* ==========================================================================
-       CAMP21 — CORRECTED DESIGN SYSTEM
-       ========================================================================== */
-    :root {
-      --indigo: #20103E;
-      --purple: #5A36C9;
-      --pink: #F05AA6;
-      --gold: #D9AF37;
-      --lavender: #B39DDB;
-      --cream: #F8F2EA;
-      --ink: #2B2733;
-      --olive: #807B1D;
+    :root{
+      --ink:#11133f;
+      --navy:#14104a;
+      --indigo:#24156f;
+      --rose:#e23c74;
+      --gold:#c8952c;
+      --gold-soft:#f3dfae;
+      --cream:#fff8ef;
+      --parchment:#f2e7d3;
+      --white:#fff;
+      --muted:#666481;
+      --line:rgba(20,16,74,.12);
+      --shadow:0 22px 70px rgba(20,16,74,.16);
+      --sans:'Plus Jakarta Sans',system-ui,sans-serif;
+      --serif:'Cormorant Garamond',Georgia,serif;
+      --ease:cubic-bezier(.16,1,.3,1);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    .wrap{width:min(100% - 44px,1180px);margin-inline:auto}
+    .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;background:#fff;padding:.7rem 1rem;border-radius:999px;z-index:9999}
 
-      --font-sans: 'Plus Jakarta Sans', sans-serif;
-      --font-serif: 'Playfair Display', serif;
-      --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
+    /* Header */
+    .site-header{position:sticky;top:0;z-index:50;background:rgba(255,248,239,.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .brand{display:flex;align-items:center;gap:.8rem;min-width:0}
+    .brand img{width:46px;height:46px;object-fit:contain;border-radius:50%;background:#fff;box-shadow:0 8px 22px rgba(20,16,74,.08)}
+    .brand-title{font-weight:900;font-size:1.08rem;letter-spacing:.055em;color:var(--navy);line-height:1;text-transform:uppercase}
+    .brand-title span{color:var(--rose)}
+    .nav-links{display:flex;align-items:center;gap:.35rem}
+    .nav-links a{font-size:.84rem;font-weight:800;color:var(--muted);padding:.52rem .88rem;border-radius:999px;transition:.25s ease}
+    .nav-links a:hover{background:var(--parchment);color:var(--navy)}
+    .nav-cta{background:var(--navy)!important;color:#fff!important;box-shadow:0 10px 24px rgba(20,16,74,.15)}
+    .menu-btn{display:none;border:0;background:var(--navy);color:#fff;width:42px;height:42px;border-radius:999px;font-size:1.1rem;cursor:pointer}
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-sans);
-      background-color: var(--cream);
-      color: var(--ink);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    a { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
-    .wide { width: min(100% - 48px, 1240px); margin-inline: auto; }
+    /* Hero */
+    .hero{position:relative;isolation:isolate;padding:5.2rem 0 3.6rem;overflow:hidden}
+    .hero:before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(circle at 85% 10%,rgba(226,60,116,.12),transparent 28%),radial-gradient(circle at 15% 80%,rgba(200,149,44,.18),transparent 30%)}
+    .hero:after{content:"";position:absolute;right:-120px;top:-140px;width:440px;height:440px;background:url('assets/decor/songket-pattern.png') center/cover no-repeat;opacity:.06;z-index:-1;transform:rotate(8deg)}
+    .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:3rem;align-items:center}
+    .kicker{display:inline-flex;align-items:center;gap:.55rem;width:max-content;font-size:.72rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--rose);background:#fff;border:1px solid var(--line);border-radius:999px;padding:.48rem .86rem;box-shadow:0 10px 30px rgba(20,16,74,.06)}
+    .kicker:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold)}
+    h1{font-family:var(--serif);font-size:clamp(3.1rem,7vw,6rem);line-height:.88;letter-spacing:-.035em;color:var(--navy);margin:1.25rem 0 1rem}
+    h1 em{display:block;color:var(--rose);font-style:italic;font-weight:700}
+    .lead{max-width:54ch;font-size:1.04rem;color:var(--muted);font-weight:500}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin:1.7rem 0 1.4rem}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;border-radius:999px;padding:.88rem 1.35rem;font-weight:900;font-size:.92rem;transition:.3s var(--ease)}
+    .btn-primary{background:var(--rose);color:#fff;box-shadow:0 14px 34px rgba(226,60,116,.26)}
+    .btn-primary:hover{transform:translateY(-2px);background:var(--navy)}
+    .btn-ghost{background:#fff;color:var(--navy);border:1px solid var(--line)}
+    .btn-ghost:hover{transform:translateY(-2px);border-color:rgba(20,16,74,.28)}
+    .mini-facts{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.2rem}
+    .mini-fact{display:inline-flex;align-items:center;gap:.45rem;background:rgba(255,255,255,.75);border:1px solid var(--line);border-radius:999px;padding:.48rem .78rem;font-size:.82rem;font-weight:800;color:var(--navy)}
+    .mini-fact span{color:var(--gold)}
+    .hero-photo{position:relative}
+    .photo-card{position:relative;border-radius:36px;overflow:hidden;background:var(--parchment);box-shadow:var(--shadow);aspect-ratio:4/3.15;border:1px solid rgba(255,255,255,.65)}
+    .photo-card img{width:100%;height:100%;object-fit:cover}
+    .photo-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(20,16,74,.25))}
+    .wau{position:absolute;right:-18px;top:-28px;width:118px;filter:drop-shadow(0 12px 20px rgba(20,16,74,.14))}
+    .hero-badge{position:absolute;left:-18px;bottom:-18px;background:var(--navy);color:#fff;border:5px solid var(--cream);border-radius:24px;padding:1rem 1.15rem;box-shadow:0 18px 45px rgba(20,16,74,.25)}
+    .hero-badge strong{display:block;font-family:var(--serif);font-size:2.2rem;line-height:1;color:var(--gold-soft)}
+    .hero-badge small{display:block;margin-top:.18rem;font-size:.66rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.62)}
 
-    a:focus-visible, button:focus-visible {
-      outline: 2px solid var(--purple); outline-offset: 3px; border-radius: 4px;
-    }
+    /* Shared */
+    section{padding:3.8rem 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:1.5rem;margin-bottom:1.5rem}
+    .eyebrow{font-size:.72rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--rose);margin-bottom:.35rem}
+    h2{font-family:var(--serif);font-size:clamp(2rem,4.2vw,3.4rem);line-height:1;color:var(--navy);letter-spacing:-.025em}
+    .section-note{max-width:45ch;color:var(--muted);font-size:.96rem}
+    .soft-link{font-weight:900;color:var(--rose);white-space:nowrap}
 
-    /* scroll-margin so anchor jumps clear any sticky context */
-    section[id] { scroll-margin-top: 90px; }
+    /* Quick facts */
+    .facts{padding-top:2.2rem}
+    .facts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem}
+    .fact-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:1.25rem;box-shadow:0 14px 40px rgba(20,16,74,.06)}
+    .fact-card img{width:34px;height:34px;object-fit:contain;margin-bottom:.85rem}
+    .fact-card strong{display:block;font-size:.97rem;color:var(--navy);line-height:1.25}
+    .fact-card span{display:block;margin-top:.28rem;color:var(--muted);font-size:.84rem;font-weight:600}
 
-    /* reveal-on-scroll */
-    .reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
-    .reveal.active { opacity: 1; transform: translateY(0); }
+    /* Portals */
+    .portals{background:var(--navy);color:#fff;position:relative;overflow:hidden;isolation:isolate}
+    .portals:before{content:"";position:absolute;left:-70px;bottom:-110px;width:380px;height:380px;background:url('assets/decor/batik-corner-gold.png') center/contain no-repeat;opacity:.08;z-index:-1}
+    .portals .eyebrow{color:var(--gold-soft)}
+    .portals h2{color:#fff}
+    .portals .section-note{color:rgba(255,255,255,.56)}
+    .portal-grid{display:grid;grid-template-columns:1.18fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:.95rem}
+    .portal-card{min-height:230px;position:relative;overflow:hidden;border-radius:26px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);padding:1.25rem;display:flex;flex-direction:column;justify-content:flex-end;transition:.3s var(--ease)}
+    .portal-card:hover{transform:translateY(-4px);background:rgba(255,255,255,.11)}
+    .portal-card.featured{min-height:310px;grid-row:1/3}
+    .portal-card img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.32;z-index:0}
+    .portal-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 20%,rgba(8,7,32,.9));z-index:1}
+    .portal-content{position:relative;z-index:2}
+    .portal-icon{width:46px;height:46px;object-fit:contain;margin-bottom:1rem;border-radius:14px;background:rgba(255,255,255,.08);padding:.3rem}
+    .portal-card h3{font-size:1.1rem;margin-bottom:.25rem}
+    .portal-card.featured h3{font-family:var(--serif);font-size:2rem;line-height:1}
+    .portal-card p{color:rgba(255,255,255,.62);font-size:.84rem;line-height:1.5;margin-bottom:.85rem}
+    .portal-card span{font-weight:900;color:var(--gold-soft);font-size:.82rem}
 
-    /* shared section heading */
-    .sec-head { max-width: 640px; margin-bottom: 2.6rem; }
-    .eyebrow {
-      display: inline-block; font-weight: 800; font-size: 0.78rem;
-      letter-spacing: 0.16em; text-transform: uppercase; color: var(--purple);
-      margin-bottom: 0.7rem;
-    }
-    .sec-head h2 {
-      font-family: var(--font-serif); font-weight: 900;
-      font-size: clamp(2.2rem, 4.4vw, 3.4rem);
-      line-height: 1.07; letter-spacing: -0.01em; color: var(--indigo);
-      margin-bottom: 0.9rem;
-    }
-    .sec-head p { font-size: 1.02rem; color: var(--ink); opacity: 0.82; }
+    /* Programme preview */
+    .programme{background:linear-gradient(180deg,var(--cream),#fff)}
+    .days{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem}
+    .day{background:#fff;border:1px solid var(--line);border-radius:22px;padding:1.2rem;position:relative;overflow:hidden;min-height:175px;box-shadow:0 12px 34px rgba(20,16,74,.055)}
+    .day:after{content:attr(data-day);position:absolute;right:.7rem;bottom:-.28em;font-family:var(--serif);font-size:6.6rem;line-height:1;font-weight:700;color:rgba(20,16,74,.055)}
+    .day small{display:inline-flex;background:var(--parchment);color:var(--gold);border-radius:999px;padding:.28rem .65rem;font-size:.66rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.9rem}
+    .day h3{position:relative;z-index:1;color:var(--navy);font-size:1rem;line-height:1.3;margin-bottom:.45rem}
+    .day p{position:relative;z-index:1;color:var(--muted);font-size:.84rem;line-height:1.55}
 
-    /* ---------- image-slot helper (graceful before photos land) ---------- */
-    .img-slot { position: absolute; inset: 0; display: grid; place-items: center; overflow: hidden;
-      background: linear-gradient(135deg, var(--indigo) 0%, var(--purple) 55%, var(--pink) 110%); }
-    .img-slot img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .img-slot .slot-tag { position: absolute; padding: 0.45rem 0.8rem; border-radius: 999px;
-      background: rgba(248,242,234,0.92); color: var(--indigo); font-size: 0.72rem; font-weight: 800;
-      letter-spacing: 0.02em; pointer-events: none; }
+    /* Closing strip */
+    .closing{padding:3.5rem 0;background:var(--parchment)}
+    .closing-card{display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:center;background:var(--white);border:1px solid var(--line);border-radius:30px;padding:1.6rem;box-shadow:0 16px 44px rgba(20,16,74,.07)}
+    .closing h2{font-size:clamp(1.75rem,3.2vw,2.7rem)}
+    .closing p{color:var(--muted);max-width:58ch;margin-top:.45rem}
 
-    /* ==========================================================================
-       HEADER & NAVIGATION
-       ========================================================================== */
-    header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: rgba(248, 242, 234, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(32, 16, 62, 0.08);
-      padding: 1rem 0;
-    }
-    .nav-wrap { display: flex; align-items: center; justify-content: space-between; }
-    .brand { font-family: var(--font-serif); font-weight: 700; font-size: 1.4rem; color: var(--indigo); letter-spacing: -0.01em; }
-    .brand span { color: var(--pink); }
+    /* Footer */
+    footer{background:#0d0a2d;color:#fff;padding:2.3rem 0}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:1.2rem;flex-wrap:wrap}
+    .footer-brand{font-weight:900;letter-spacing:.05em;text-transform:uppercase}
+    .footer-brand span{color:var(--rose)}
+    .footer-meta{color:rgba(255,255,255,.48);font-size:.82rem}
+    .footer-links{display:flex;gap:1rem;flex-wrap:wrap}
+    .footer-links a{color:rgba(255,255,255,.66);font-size:.82rem;font-weight:800}
+    .footer-links a:hover{color:var(--gold-soft)}
 
-    .nav-links { display: flex; gap: 1.8rem; align-items: center; }
-    .nav-links a { font-weight: 700; font-size: 0.92rem; color: var(--ink); transition: color 0.3s ease; }
-    .nav-links a:hover { color: var(--purple); }
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
+    .reveal.show{opacity:1;transform:none}
+    @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 
-    .btn-primary {
-      background: var(--pink); color: #fff;
-      padding: 0.75rem 1.4rem; border-radius: 999px;
-      font-weight: 800; font-size: 0.88rem; display: inline-block;
-      transition: var(--transition);
+    @media (max-width:980px){
+      .hero-grid{grid-template-columns:1fr;gap:2rem}.hero-photo{max-width:680px}.facts-grid,.days{grid-template-columns:repeat(2,1fr)}.portal-grid{grid-template-columns:1fr 1fr}.portal-card.featured{grid-column:1/-1;grid-row:auto;min-height:270px}.closing-card{grid-template-columns:1fr}
     }
-    .btn-primary:hover { background: var(--purple); transform: translateY(-2px); }
-
-    .btn-outline {
-      background: transparent; color: var(--indigo); border: 2px solid var(--indigo);
-      padding: 0.75rem 1.4rem; border-radius: 999px;
-      font-weight: 800; font-size: 0.88rem; display: inline-block;
-      transition: var(--transition);
-    }
-    .btn-outline:hover { background: var(--indigo); color: #fff; }
-
-    .menu-btn { display: none; font-size: 1.5rem; background: none; border: none; cursor: pointer; color: var(--indigo); }
-
-    /* ==========================================================================
-       HERO
-       ========================================================================== */
-    .hero { padding: 8rem 0 5rem; display: flex; align-items: center; position: relative; }
-    .hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 4rem; align-items: center; }
-
-    .hero-tagline {
-      font-family: var(--font-serif); font-style: italic; font-weight: 600;
-      color: var(--pink); font-size: 1.15rem; margin-bottom: 1rem; display: block; letter-spacing: 0.01em;
-    }
-    .hero h1 {
-      font-family: var(--font-serif);
-      font-size: clamp(2.8rem, 5.4vw, 4.8rem);
-      font-weight: 900; line-height: 1.05; letter-spacing: -0.01em; color: var(--indigo); margin-bottom: 1.4rem;
-    }
-    .hero p { font-size: 1.08rem; font-weight: 500; color: var(--ink); max-width: 92%; margin-bottom: 2.2rem; opacity: 0.85; }
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.8rem; }
-    .hero-meta { font-weight: 800; font-size: 0.88rem; color: var(--olive); display: flex; gap: 0.4rem; align-items: center; flex-wrap: wrap; }
-    .hero-meta .dot { color: var(--gold); }
-
-    .hero-visual { position: relative; }
-    .hero-visual .img-slot {
-      width: 100%; height: 540px; border-radius: 160px 20px 20px 20px;
-      box-shadow: 0 30px 60px rgba(32, 16, 62, 0.18);
-    }
-    .hero-accent {
-      position: absolute; bottom: -28px; left: -28px; width: 110px; height: 110px;
-      background: var(--gold); border-radius: 50%; display: grid; place-items: center;
-      font-weight: 900; text-align: center; line-height: 1.2; color: var(--indigo);
-      border: 7px solid var(--cream); font-size: 0.95rem; z-index: 2;
-    }
-    .hero-gold-line { position: absolute; top: -18px; right: 30px; width: 64px; height: 4px; background: var(--gold); border-radius: 2px; z-index: 2; }
-
-    /* ==========================================================================
-       CHOOSE YOUR PATHWAY
-       ========================================================================== */
-    .pathways { padding: 4rem 0 6rem; }
-    .pathways-grid {
-      display: grid; grid-template-columns: 1.12fr 0.88fr; grid-template-rows: repeat(3, 1fr); gap: 1.4rem;
-    }
-    .lead-card {
-      grid-column: 1; grid-row: 1 / 4; position: relative; min-height: 460px;
-      border-radius: 120px 28px 28px 28px; overflow: hidden;
-      box-shadow: 0 24px 50px rgba(32, 16, 62, 0.16); transition: var(--transition);
-      display: flex; flex-direction: column; justify-content: flex-end; isolation: isolate;
-    }
-    .lead-card::after {
-      content: ""; position: absolute; inset: 0; z-index: 1;
-      background: linear-gradient(180deg, rgba(32,16,62,0) 38%, rgba(32,16,62,0.86) 100%);
-    }
-    .lead-card .img-slot { z-index: 0; }
-    .lead-card:hover { transform: translateY(-4px); box-shadow: 0 30px 64px rgba(32, 16, 62, 0.24); }
-    .lead-gold-line { position: absolute; top: 28px; right: 28px; z-index: 2; width: 64px; height: 4px; background: var(--gold); border-radius: 2px; }
-    .lead-body { position: relative; z-index: 2; padding: 2.2rem; color: #fff; }
-    .lead-body .role-kicker { font-weight: 800; font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--lavender); margin-bottom: 0.5rem; display: block; }
-    .lead-body h3 { font-family: var(--font-serif); font-weight: 900; font-size: 2.1rem; line-height: 1.05; margin-bottom: 0.5rem; }
-    .lead-body p { font-size: 0.98rem; opacity: 0.92; max-width: 34ch; margin-bottom: 1.2rem; }
-    .lead-cta { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--pink); color: #fff; font-weight: 800; font-size: 0.86rem; padding: 0.7rem 1.3rem; border-radius: 999px; transition: var(--transition); }
-    .lead-card:hover .lead-cta { background: var(--gold); color: var(--indigo); }
-    .lead-cta .arr { transition: transform 0.3s ease; }
-    .lead-card:hover .lead-cta .arr { transform: translateX(4px); }
-
-    .role-card {
-      position: relative; background: #FFFFFF; border: 1px solid rgba(32, 16, 62, 0.10);
-      border-radius: 22px; padding: 1.5rem 1.7rem; display: flex; flex-direction: column; justify-content: center;
-      transition: var(--transition); overflow: hidden;
-    }
-    .role-card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: var(--accent, var(--purple)); transition: var(--transition); }
-    .role-card:hover { transform: translateY(-4px); border-color: rgba(32, 16, 62, 0.04); box-shadow: 0 18px 40px rgba(32, 16, 62, 0.12); }
-    .role-card:hover::before { width: 8px; }
-    .role-top { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 0.45rem; }
-    .role-chip { width: 34px; height: 34px; border-radius: 10px; flex: none; background: color-mix(in srgb, var(--accent) 14%, white); color: var(--accent); display: grid; place-items: center; }
-    .role-chip svg { width: 18px; height: 18px; }
-    .role-card h3 { font-size: 1.18rem; font-weight: 800; color: var(--indigo); }
-    .role-card p { font-size: 0.92rem; color: var(--ink); opacity: 0.78; margin-bottom: 0.7rem; }
-    .role-link { display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 800; font-size: 0.84rem; color: var(--accent); }
-    .role-link .arr { transition: transform 0.3s ease; }
-    .role-card:hover .role-link .arr { transform: translateX(4px); }
-
-    /* ==========================================================================
-       PROGRAMME — 4 Days of Impact
-       ========================================================================== */
-    .programme { padding: 4rem 0; }
-    .bento-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4rem; }
-    .bento-card {
-      border-radius: 22px; padding: 2rem; min-height: 230px;
-      display: flex; flex-direction: column; transition: var(--transition);
-    }
-    .bento-card:hover { transform: translateY(-8px); box-shadow: 0 24px 50px rgba(32, 16, 62, 0.18); }
-    .day-badge {
-      align-self: flex-start; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
-      padding: 0.35rem 0.8rem; border-radius: 999px; margin-bottom: 1.2rem;
-    }
-    .bento-card h3 { font-family: var(--font-serif); font-weight: 700; font-size: 1.65rem; line-height: 1.1; margin-bottom: 0.8rem; }
-    .bento-card p { font-weight: 500; font-size: 0.94rem; margin-top: auto; opacity: 0.9; }
-
-    .bc-1 { background: var(--indigo); color: var(--cream); }
-    .bc-1 .day-badge { background: var(--gold); color: var(--indigo); }
-    .bc-2 { background: var(--purple); color: #fff; }
-    .bc-2 .day-badge { background: var(--pink); color: #fff; }
-    .bc-3 { background: var(--pink); color: #fff; }
-    .bc-3 .day-badge { background: var(--indigo); color: #fff; }
-    .bc-4 { background: var(--gold); color: var(--indigo); }
-    .bc-4 .day-badge { background: var(--indigo); color: var(--gold); }
-
-    /* ==========================================================================
-       FRAMEWORK — Think. Design. Impact.
-       ========================================================================== */
-    .framework { padding: 4rem 0 6rem; }
-    .framework-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; }
-    .fw-card {
-      position: relative; background: #FFFFFF; border: 1px solid rgba(32, 16, 62, 0.10);
-      border-radius: 22px; padding: 2.2rem 2rem; overflow: hidden; transition: var(--transition);
-    }
-    .fw-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: var(--accent, var(--purple)); transition: var(--transition); }
-    .fw-card:hover { transform: translateY(-6px); box-shadow: 0 22px 46px rgba(32, 16, 62, 0.12); }
-    .fw-card:hover::before { height: 8px; }
-    .fw-icon {
-      width: 56px; height: 56px; border-radius: 16px; display: grid; place-items: center;
-      font-size: 1.7rem; margin-bottom: 1.3rem;
-      background: color-mix(in srgb, var(--accent) 14%, white);
-    }
-    .fw-card h3 { font-family: var(--font-serif); font-weight: 700; font-size: 1.5rem; color: var(--indigo); margin-bottom: 0.7rem; }
-    .fw-card p { font-size: 0.98rem; color: var(--ink); opacity: 0.8; }
-    .fw-card .tags { margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
-    .fw-card .tag { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.04em; color: var(--accent);
-      background: color-mix(in srgb, var(--accent) 12%, white); padding: 0.3rem 0.7rem; border-radius: 999px; }
-
-    /* ==========================================================================
-       FOOTER
-       ========================================================================== */
-    footer { position: relative; background: var(--indigo); color: #fff; padding: 4.5rem 0 2rem; overflow: hidden; isolation: isolate; }
-    footer::before {
-      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 14px; z-index: 2;
-      background: url("assets/decor/gold-divider.png") repeat-x center / auto 14px;
-      background-color: transparent; box-shadow: inset 0 1px 0 rgba(217,175,55,0.55);
-    }
-    .footer-decor {
-      position: absolute; right: -10px; bottom: -10px; width: 230px; height: 230px;
-      background: url("assets/decor/batik-corner-gold.png") no-repeat bottom right / contain;
-      opacity: 0.16; z-index: 0; pointer-events: none;
-    }
-    .footer-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.1fr; gap: 2.4rem; margin-bottom: 3rem; }
-    .footer-brand .brand { font-family: var(--font-serif); font-weight: 700; font-size: 1.6rem; color: #fff; display: inline-block; margin-bottom: 0.9rem; }
-    .footer-brand .brand span { color: var(--pink); }
-    .footer-brand p { color: rgba(248,242,234,0.72); max-width: 260px; font-size: 0.94rem; }
-    .footer-col h4 { color: var(--gold); font-size: 0.82rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1.2rem; }
-    .footer-col ul { display: flex; flex-direction: column; gap: 0.7rem; }
-    .footer-col a, .footer-col p { color: rgba(248,242,234,0.72); font-size: 0.94rem; transition: color 0.3s ease; }
-    .footer-col a:hover { color: var(--pink); }
-    .footer-meta { position: relative; z-index: 1; border-top: 1px solid rgba(248,242,234,0.12); padding-top: 1.8rem; margin-top: 0.5rem;
-      display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
-    .footer-meta .copyright { color: rgba(248,242,234,0.5); font-size: 0.86rem; }
-    .footer-meta .dates { color: var(--lavender); font-weight: 700; font-size: 0.86rem; }
-    .footer-meta .dates .dot { color: var(--gold); }
-
-    /* ==========================================================================
-       RESPONSIVE
-       ========================================================================== */
-    @media (max-width: 1024px) {
-      .hero-grid { grid-template-columns: 1fr; }
-      .hero-visual .img-slot { height: 380px; border-radius: 90px 20px 20px 20px; }
-      .bento-grid { grid-template-columns: repeat(2, 1fr); }
-      .framework-grid { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 900px) {
-      .pathways-grid { grid-template-columns: 1fr; grid-template-rows: none; }
-      .lead-card { grid-column: 1; grid-row: auto; min-height: 420px; }
-      .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem 2.4rem; }
-      .footer-brand { grid-column: 1 / -1; }
-    }
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .menu-btn { display: block; }
-      .hero { padding: 6.5rem 0 3rem; }
-      .hero p { max-width: 100%; }
-      .lead-card { border-radius: 70px 22px 22px 22px; }
-      .bento-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .footer-meta { justify-content: flex-start; }
-    }
-
-    /* keep content visible if motion is reduced or JS is off */
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { transition: none !important; }
-      .reveal { opacity: 1; transform: none; }
+    @media (max-width:760px){
+      .nav-links{position:fixed;inset:76px 18px auto 18px;background:#fff;border:1px solid var(--line);border-radius:24px;padding:.8rem;box-shadow:var(--shadow);display:none;flex-direction:column;align-items:stretch}.nav-links.open{display:flex}.nav-links a{width:100%}.menu-btn{display:block}.nav-cta{display:none!important}.hero{padding-top:3.3rem}.facts-grid,.portal-grid,.days{grid-template-columns:1fr}.section-head{align-items:flex-start;flex-direction:column}.footer-inner{align-items:flex-start;flex-direction:column}h1{font-size:clamp(3rem,16vw,4.5rem)}.wau{width:88px;right:-6px;top:-18px}.hero-badge{left:10px;bottom:10px;border-width:3px}.photo-card{border-radius:28px}
     }
   </style>
-  <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ============================ HEADER ============================ -->
-  <header>
-    <div class="wide nav-wrap">
-      <a href="#" class="brand">CAMP<span>21</span></a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#pathways">Pathways</a>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html" aria-label="CAMP21 home">
+        <img src="assets/logos/logo-camp21.png" alt="CAMP21 logo" />
+        <div class="brand-text">
+          <div class="brand-title">CAMP<span>21</span></div>
+        </div>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#portals">Portals</a>
         <a href="#programme">Programme</a>
-        <a href="#framework">Framework</a>
-        <a href="pages/updates.html">Updates</a>
-        <a href="pages/registration.html" class="btn-primary">Register now</a>
+        <a href="pages/contacts.html">Help</a>
+        <a href="pages/registration.html" class="nav-cta">Register</a>
       </nav>
-      <button class="menu-btn" aria-label="Open menu">&#9776;</button>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
     </div>
   </header>
 
-  <!-- ============================ HERO ============================ -->
-  <section class="hero">
-    <div class="wide hero-grid">
-      <div class="hero-copy reveal">
-        <span class="hero-tagline">Inspired by culture &middot; driven by ideas</span>
-        <h1>Synergising<br>Literacies<br>2026</h1>
-        <p>A creative national experience for Politeknik Malaysia students to explore heritage, innovate with purpose, and shape meaningful solutions through Design Thinking.</p>
-        <div class="hero-actions">
-          <a href="pages/registration.html" class="btn-primary">Register now</a>
-          <a href="https://smart-dt-project.netlify.app/welcome.html" target="_blank" rel="noopener" class="btn-outline">Open Smart DT App &rarr;</a>
-        </div>
-        <div class="hero-meta">13&ndash;16 July 2026 <span class="dot">&middot;</span> Kompleks Kraf Kuala Lumpur</div>
-      </div>
-      <div class="hero-visual reveal" style="transition-delay: 0.15s;">
-        <div class="hero-gold-line"></div>
-        <!-- ASSET: assets/img/home-hero-kompleks-kraf-ai-culture.png -->
-        <div class="img-slot">
-          <span class="slot-tag">home-hero-kompleks-kraf-ai-culture.png</span>
-          <img src="assets/img/home-hero-kompleks-kraf-ai-culture.png" alt="AI-culture heritage scene at Kompleks Kraf Kuala Lumpur" onerror="this.style.display='none'">
-        </div>
-        <div class="hero-accent">10<br>Teams</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== CHOOSE YOUR PATHWAY ===================== -->
-  <section class="pathways" id="pathways">
-    <div class="wide">
-      <div class="sec-head reveal">
-        <span class="eyebrow">Access portals</span>
-        <h2>Choose your pathway</h2>
-        <p>Everyone at CAMP21 has a place to work from. Pick the space built for your role and step straight into the tools you need.</p>
-      </div>
-
-      <div class="pathways-grid">
-        <!-- ASSET: assets/img/home-card-students-collaboration.png
-             This photo already carries batik / circuit-line decoration, so do NOT
-             overlay assets/decor/* PNGs on this card. -->
-        <a href="pages/participants.html" class="lead-card reveal">
-          <span class="lead-gold-line"></span>
-          <div class="img-slot">
-            <span class="slot-tag">home-card-students-collaboration.png</span>
-            <img src="assets/img/home-card-students-collaboration.png" alt="Polytechnic students collaborating on a Design Thinking task" onerror="this.style.display='none'">
+  <main id="main">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy reveal">
+          <div class="kicker">AI-Powered Design Thinking</div>
+          <h1>CAMP21:<em>Synergising</em>Literacies 2026</h1>
+          <p class="lead">A national creative experience where Politeknik Malaysia students explore Malaysian craft heritage, use AI with purpose, and design meaningful solutions at Kompleks Kraf Kuala Lumpur.</p>
+          <div class="hero-actions">
+            <a href="pages/registration.html" class="btn btn-primary">Register now →</a>
+            <a href="https://smart-dt-project.netlify.app/welcome.html" target="_blank" rel="noopener" class="btn btn-ghost">Open Smart DT App ↗</a>
           </div>
-          <div class="lead-body">
-            <span class="role-kicker">For students</span>
-            <h3>Participants</h3>
-            <p>Open the SMART DT guide and templates, then track your team through every Design Thinking phase.</p>
-            <span class="lead-cta">Enter participant space <span class="arr">&rarr;</span></span>
+          <div class="mini-facts" aria-label="Event quick facts">
+            <div class="mini-fact"><span>📅</span>13–16 July 2026</div>
+            <div class="mini-fact"><span>📍</span>Kompleks Kraf KL</div>
+            <div class="mini-fact"><span>🏆</span>10 Teams</div>
           </div>
-        </a>
-
-        <a href="pages/trainers.html" class="role-card reveal" style="--accent: var(--purple);">
-          <div class="role-top">
-            <span class="role-chip" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-            </span>
-            <h3>Trainers</h3>
-          </div>
-          <p>Monitor student progress and sign off phase checkpoints for your assigned groups.</p>
-          <span class="role-link">Open trainer view <span class="arr">&rarr;</span></span>
-        </a>
-
-        <a href="pages/organiser.html" class="role-card reveal" style="--accent: var(--pink);">
-          <div class="role-top">
-            <span class="role-chip" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>
-            </span>
-            <h3>Organisers</h3>
-          </div>
-          <p>Push live updates, manage logistics, and oversee the command centre.</p>
-          <span class="role-link">Open command centre <span class="arr">&rarr;</span></span>
-        </a>
-
-        <a href="pages/judges.html" class="role-card reveal" style="--accent: var(--olive);">
-          <div class="role-top">
-            <span class="role-chip" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15l-3 6h6l-3-6z"/><path d="M5 7l7-4 7 4M5 7l3 5M5 7L2 12M19 7l-3 5M19 7l3 5"/></svg>
-            </span>
-            <h3>Judges</h3>
-          </div>
-          <p>Access evaluation rubrics and submit live scores during the final pitch.</p>
-          <span class="role-link">Open scoring panel <span class="arr">&rarr;</span></span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================= PROGRAMME ========================= -->
-  <section class="programme" id="programme">
-    <div class="wide">
-      <div class="sec-head reveal">
-        <span class="eyebrow">Schedule</span>
-        <h2>4 days of impact</h2>
-        <p>From first empathy to final pitch — four days that move each team from cultural insight to a tested idea.</p>
-      </div>
-
-      <div class="bento-grid">
-        <article class="bento-card bc-1 reveal">
-          <span class="day-badge">Day 1</span>
-          <h3>Empathise &amp; Define</h3>
-          <p>AI orientation, heritage immersion &amp; problem shaping.</p>
-        </article>
-        <article class="bento-card bc-2 reveal" style="transition-delay: 0.1s;">
-          <span class="day-badge">Day 2</span>
-          <h3>Ideate &amp; Build</h3>
-          <p>Concept generation &amp; rapid prototyping.</p>
-        </article>
-        <article class="bento-card bc-3 reveal" style="transition-delay: 0.2s;">
-          <span class="day-badge">Day 3</span>
-          <h3>Test &amp; Refine</h3>
-          <p>Peer feedback, iteration &amp; pitch prep.</p>
-        </article>
-        <article class="bento-card bc-4 reveal" style="transition-delay: 0.3s;">
-          <span class="day-badge">Day 4</span>
-          <h3>Pitch &amp; Impact</h3>
-          <p>Final presentations &amp; closing celebration.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================= FRAMEWORK ========================= -->
-  <section class="framework" id="framework">
-    <div class="wide">
-      <div class="sec-head reveal">
-        <span class="eyebrow">Methodology</span>
-        <h2>Think. Design. Impact.</h2>
-      </div>
-
-      <div class="framework-grid">
-        <article class="fw-card reveal" style="--accent: var(--purple);">
-          <div class="fw-icon" aria-hidden="true">🧠</div>
-          <h3>Design Thinking</h3>
-          <p>Empathise → Define → Ideate → Prototype → Test. A human-centred methodology that helps students turn cultural insights into real solutions.</p>
-        </article>
-        <article class="fw-card reveal" style="--accent: var(--pink); transition-delay: 0.1s;">
-          <div class="fw-icon" aria-hidden="true">⚡</div>
-          <h3>AI Empowerment</h3>
-          <p>Using artificial intelligence responsibly as a co-pilot — to support brainstorming, visualise ideas, and enhance cultural storytelling.</p>
-        </article>
-        <article class="fw-card reveal" style="--accent: var(--olive); transition-delay: 0.2s;">
-          <div class="fw-icon" aria-hidden="true">🌍</div>
-          <h3>SDG Impact</h3>
-          <p>Aligning creative outputs with global goals for quality education, sustainable cities, and responsible consumption.</p>
-          <div class="tags"><span class="tag">SDG 4</span><span class="tag">SDG 11</span><span class="tag">SDG 12</span></div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================ FOOTER ============================ -->
-  <footer id="footer">
-    <span class="footer-decor" aria-hidden="true"></span>
-    <div class="wide">
-      <div class="footer-grid">
-        <div class="footer-brand footer-col">
-          <a href="#" class="brand">CAMP<span>21</span></a>
-          <p>AI-powered Design Thinking for sustainable cultural heritage.</p>
         </div>
-        <div class="footer-col">
-          <h4>Explore</h4>
-          <ul>
-            <li><a href="#pathways">Access hubs</a></li>
-            <li><a href="pages/programme.html">Full programme</a></li>
-            <li><a href="pages/resources.html">Assets vault</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Support</h4>
-          <ul>
-            <li><a href="pages/contacts.html">Help desk</a></li>
-            <li><a href="https://t.me/+vTPGEFIaXMs5Mjhl" target="_blank" rel="noopener">Telegram community</a></li>
-            <li><a href="https://smart-dt-project.netlify.app/welcome.html" target="_blank" rel="noopener">Smart DT app</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Venue</h4>
-          <p>Kompleks Kraf Kuala Lumpur<br>Jalan Conlay, 50450<br>Kuala Lumpur</p>
+        <div class="hero-photo reveal" style="transition-delay:.08s">
+          <img class="wau" src="assets/decor/wau-bulan.png" alt="" aria-hidden="true" />
+          <div class="photo-card">
+            <img src="assets/images/hero-kompleks-kraf.png" alt="Kompleks Kraf Kuala Lumpur with Malaysian heritage craft atmosphere" />
+          </div>
+          <div class="hero-badge" aria-hidden="true"><strong>4</strong><small>Days</small></div>
         </div>
       </div>
-      <div class="footer-meta">
-        <span class="copyright">&copy; 2026 CAMP21: Synergising Literacies. All rights reserved.</span>
-        <span class="dates">13&ndash;16 July 2026 <span class="dot">&middot;</span> Kompleks Kraf Kuala Lumpur</span>
+    </section>
+
+    <section class="facts" aria-label="Key event information">
+      <div class="wrap facts-grid reveal">
+        <article class="fact-card">
+          <img src="assets/icons/icon-date.png" alt="" aria-hidden="true" />
+          <strong>13–16 July 2026</strong>
+          <span>Four-day national programme</span>
+        </article>
+        <article class="fact-card">
+          <img src="assets/icons/icon-location.png" alt="" aria-hidden="true" />
+          <strong>Kompleks Kraf KL</strong>
+          <span>Jalan Conlay, Kuala Lumpur</span>
+        </article>
+        <article class="fact-card">
+          <img src="assets/icons/icon-groups.png" alt="" aria-hidden="true" />
+          <strong>10 Teams</strong>
+          <span>Politeknik Malaysia participants</span>
+        </article>
+        <article class="fact-card">
+          <img src="assets/icons/icon-dt-journey.png" alt="" aria-hidden="true" />
+          <strong>Design Thinking</strong>
+          <span>Empathy to final pitch</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="portals" id="portals">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">Access portals</div>
+            <h2>Choose your role</h2>
+          </div>
+          <p class="section-note">The homepage stays simple. Each role has its own dedicated page for the details, tools, and updates.</p>
+        </div>
+        <div class="portal-grid">
+          <a href="pages/participants.html" class="portal-card featured reveal">
+            <img class="bg" src="assets/images/participants-corner.png" alt="" aria-hidden="true" />
+            <div class="portal-content">
+              <img class="portal-icon" src="assets/icons/icon-participants.png" alt="" aria-hidden="true" />
+              <h3>Participants</h3>
+              <p>Open the Smart DT guide, templates, resources, and team tasks.</p>
+              <span>Enter participant hub →</span>
+            </div>
+          </a>
+          <a href="pages/trainers.html" class="portal-card reveal" style="transition-delay:.05s">
+            <img class="bg" src="assets/images/trainer-support.png" alt="" aria-hidden="true" />
+            <div class="portal-content">
+              <img class="portal-icon" src="assets/icons/icon-trainers.png" alt="" aria-hidden="true" />
+              <h3>Trainers</h3>
+              <p>Lead phase inputs, briefings, and learning direction.</p>
+              <span>Open trainer view →</span>
+            </div>
+          </a>
+          <a href="pages/facilitators.html" class="portal-card reveal" style="transition-delay:.1s">
+            <img class="bg" src="assets/images/trainer-support.png" alt="" aria-hidden="true" />
+            <div class="portal-content">
+              <img class="portal-icon" src="assets/icons/icon-groups.png" alt="" aria-hidden="true" />
+              <h3>Facilitators</h3>
+              <p>Assist teams on-site, guide checkpoints, and support smooth movement.</p>
+              <span>Open facilitator view →</span>
+            </div>
+          </a>
+          <a href="pages/organiser.html" class="portal-card reveal" style="transition-delay:.15s">
+            <img class="bg" src="assets/images/venue-kompleks-kraf.png" alt="" aria-hidden="true" />
+            <div class="portal-content">
+              <img class="portal-icon" src="assets/icons/icon-programme.png" alt="" aria-hidden="true" />
+              <h3>Organisers</h3>
+              <p>Manage updates, logistics, and secretariat coordination.</p>
+              <span>Open centre →</span>
+            </div>
+          </a>
+          <a href="pages/judges.html" class="portal-card reveal" style="transition-delay:.2s">
+            <img class="bg" src="assets/images/judging-panel.png" alt="" aria-hidden="true" />
+            <div class="portal-content">
+              <img class="portal-icon" src="assets/icons/icon-judges.png" alt="" aria-hidden="true" />
+              <h3>Judges</h3>
+              <p>Access rubrics and scoring panel.</p>
+              <span>Score panel →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="programme" id="programme">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">Programme preview</div>
+            <h2>4 days, one clear journey</h2>
+          </div>
+          <a href="pages/programme.html" class="soft-link">View full schedule →</a>
+        </div>
+        <div class="days">
+          <article class="day reveal" data-day="1">
+            <small>Day 1 · 13 Jul</small>
+            <h3>Empathise &amp; Define</h3>
+            <p>AI orientation, heritage immersion, and problem framing.</p>
+          </article>
+          <article class="day reveal" style="transition-delay:.05s" data-day="2">
+            <small>Day 2 · 14 Jul</small>
+            <h3>Ideate &amp; Build</h3>
+            <p>Idea generation and rapid craft-inspired prototyping.</p>
+          </article>
+          <article class="day reveal" style="transition-delay:.1s" data-day="3">
+            <small>Day 3 · 15 Jul</small>
+            <h3>Test &amp; Refine</h3>
+            <p>Feedback, iteration, and pitch preparation.</p>
+          </article>
+          <article class="day reveal" style="transition-delay:.15s" data-day="4">
+            <small>Day 4 · 16 Jul</small>
+            <h3>Pitch &amp; Impact</h3>
+            <p>Final presentation, judging, and closing celebration.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="wrap closing-card reveal">
+        <div>
+          <div class="eyebrow">Start here</div>
+          <h2>Ready for CAMP21?</h2>
+          <p>Register, check your role portal, and use the Smart DT App as your main guide throughout the programme.</p>
+        </div>
+        <a href="pages/registration.html" class="btn btn-primary">Register now →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div>
+        <div class="footer-brand">CAMP<span>21</span></div>
+        <div class="footer-meta">13–16 July 2026 · Kompleks Kraf Kuala Lumpur</div>
+      </div>
+      <div class="footer-links">
+        <a href="pages/programme.html">Programme</a>
+        <a href="pages/resources.html">Resources</a>
+        <a href="pages/contacts.html">Help</a>
+        <a href="https://smart-dt-project.netlify.app/welcome.html" target="_blank" rel="noopener">Smart DT App</a>
       </div>
     </div>
   </footer>
 
   <script>
-    /* reveal-on-scroll */
-    const revealElements = document.querySelectorAll('.reveal');
-    const revealOnScroll = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('active');
-        observer.unobserve(entry.target);
-      });
-    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
-    revealElements.forEach(el => revealOnScroll.observe(el));
-
-    /* mobile menu */
-    const menuBtn = document.querySelector('.menu-btn');
-    const navLinks = document.querySelector('.nav-links');
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
     menuBtn.addEventListener('click', () => {
-      const isOpen = navLinks.style.display === 'flex';
-      if (isOpen) {
-        navLinks.style.display = 'none';
-      } else {
-        navLinks.style.display = 'flex';
-        navLinks.style.flexDirection = 'column';
-        navLinks.style.position = 'absolute';
-        navLinks.style.top = '70px';
-        navLinks.style.left = '0';
-        navLinks.style.right = '0';
-        navLinks.style.background = '#F8F2EA';
-        navLinks.style.padding = '2rem';
-        navLinks.style.boxShadow = '0 10px 20px rgba(32,16,62,0.1)';
-        navLinks.style.gap = '1.2rem';
-        navLinks.style.zIndex = '999';
-      }
+      const open = navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.textContent = open ? '×' : '☰';
     });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.textContent = '☰';
+    }));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold:.08, rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>

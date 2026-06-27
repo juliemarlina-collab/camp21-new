@@ -39,8 +39,9 @@
     .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
     .brand{display:flex;align-items:center;gap:.8rem;min-width:0}
     .brand img{width:46px;height:46px;object-fit:contain;border-radius:50%;background:#fff;box-shadow:0 8px 22px rgba(20,16,74,.08)}
-    .brand-title{font-weight:900;font-size:1.08rem;letter-spacing:.055em;color:var(--navy);line-height:1;text-transform:uppercase}
+    .brand-title{font-weight:900;letter-spacing:.04em;color:var(--navy);line-height:1;text-transform:uppercase}
     .brand-title span{color:var(--rose)}
+    .brand-sub{display:none}
     .nav-links{display:flex;align-items:center;gap:.35rem}
     .nav-links a{font-size:.84rem;font-weight:800;color:var(--muted);padding:.52rem .88rem;border-radius:999px;transition:.25s ease}
     .nav-links a:hover{background:var(--parchment);color:var(--navy)}
@@ -49,8 +50,8 @@
 
     /* Hero */
     .hero{position:relative;isolation:isolate;padding:5.2rem 0 3.6rem;overflow:hidden}
-    .hero:before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(circle at 85% 10%,rgba(226,60,116,.12),transparent 28%),radial-gradient(circle at 15% 80%,rgba(200,149,44,.18),transparent 30%)}
-    .hero:after{content:"";position:absolute;right:-120px;top:-140px;width:440px;height:440px;background:url('assets/decor/songket-pattern.png') center/cover no-repeat;opacity:.06;z-index:-1;transform:rotate(8deg)}
+    .hero:before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(255,248,239,.98) 0%,rgba(255,248,239,.95) 34%,rgba(255,248,239,.86) 56%,rgba(255,248,239,.72) 100%),url('assets/decor/hero-golden-heritage-bg.png') right center/cover no-repeat}
+    .hero:after{content:"";position:absolute;right:-60px;top:-46px;width:360px;height:360px;background:radial-gradient(circle,rgba(226,60,116,.10),transparent 60%);opacity:.55;z-index:-1}
     .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:3rem;align-items:center}
     .kicker{display:inline-flex;align-items:center;gap:.55rem;width:max-content;font-size:.72rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--rose);background:#fff;border:1px solid var(--line);border-radius:999px;padding:.48rem .86rem;box-shadow:0 10px 30px rgba(20,16,74,.06)}
     .kicker:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold)}
@@ -70,7 +71,7 @@
     .photo-card{position:relative;border-radius:36px;overflow:hidden;background:var(--parchment);box-shadow:var(--shadow);aspect-ratio:4/3.15;border:1px solid rgba(255,255,255,.65)}
     .photo-card img{width:100%;height:100%;object-fit:cover}
     .photo-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(20,16,74,.25))}
-    .wau{position:absolute;right:-18px;top:-28px;width:118px;filter:drop-shadow(0 12px 20px rgba(20,16,74,.14))}
+    .wau{display:none}
     .hero-badge{position:absolute;left:-18px;bottom:-18px;background:var(--navy);color:#fff;border:5px solid var(--cream);border-radius:24px;padding:1rem 1.15rem;box-shadow:0 18px 45px rgba(20,16,74,.25)}
     .hero-badge strong{display:block;font-family:var(--serif);font-size:2.2rem;line-height:1;color:var(--gold-soft)}
     .hero-badge small{display:block;margin-top:.18rem;font-size:.66rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.62)}
@@ -87,7 +88,7 @@
     .facts{padding-top:2.2rem}
     .facts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem}
     .fact-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:1.25rem;box-shadow:0 14px 40px rgba(20,16,74,.06)}
-    .fact-card img{width:34px;height:34px;object-fit:contain;margin-bottom:.85rem}
+    .fact-card img{width:56px;height:56px;object-fit:contain;margin-bottom:1rem;padding:.38rem;border-radius:16px;background:linear-gradient(180deg,#fffdf8,#f6ecd7);box-shadow:0 10px 26px rgba(20,16,74,.08)}
     .fact-card strong{display:block;font-size:.97rem;color:var(--navy);line-height:1.25}
     .fact-card span{display:block;margin-top:.28rem;color:var(--muted);font-size:.84rem;font-weight:600}
 
@@ -98,23 +99,23 @@
     .portals h2{color:#fff}
     .portals .section-note{color:rgba(255,255,255,.56)}
     .portal-grid{display:grid;grid-template-columns:1.18fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:.95rem}
-    .portal-card{min-height:230px;position:relative;overflow:hidden;border-radius:26px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);padding:1.25rem;display:flex;flex-direction:column;justify-content:flex-end;transition:.3s var(--ease)}
+    .portal-card{min-height:240px;position:relative;overflow:hidden;border-radius:26px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);padding:1.35rem;display:flex;flex-direction:column;justify-content:flex-end;transition:.3s var(--ease)}
     .portal-card:hover{transform:translateY(-4px);background:rgba(255,255,255,.11)}
     .portal-card.featured{min-height:310px;grid-row:1/3}
     .portal-card img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.32;z-index:0}
     .portal-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 20%,rgba(8,7,32,.9));z-index:1}
     .portal-content{position:relative;z-index:2}
-    .portal-icon{width:46px;height:46px;object-fit:contain;margin-bottom:1rem;border-radius:14px;background:rgba(255,255,255,.08);padding:.3rem}
+    .portal-icon{width:64px;height:64px;object-fit:contain;margin-bottom:1rem;border-radius:18px;background:rgba(255,255,255,.10);padding:.45rem;box-shadow:0 10px 24px rgba(0,0,0,.22)}
     .portal-card h3{font-size:1.1rem;margin-bottom:.25rem}
     .portal-card.featured h3{font-family:var(--serif);font-size:2rem;line-height:1}
-    .portal-card p{color:rgba(255,255,255,.62);font-size:.84rem;line-height:1.5;margin-bottom:.85rem}
+    .portal-card p{color:rgba(255,255,255,.72);font-size:.92rem;line-height:1.55;margin-bottom:.9rem;max-width:34ch}
     .portal-card span{font-weight:900;color:var(--gold-soft);font-size:.82rem}
 
     /* Programme preview */
     .programme{background:linear-gradient(180deg,var(--cream),#fff)}
     .days{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem}
     .day{background:#fff;border:1px solid var(--line);border-radius:22px;padding:1.2rem;position:relative;overflow:hidden;min-height:175px;box-shadow:0 12px 34px rgba(20,16,74,.055)}
-    .day:after{content:attr(data-day);position:absolute;right:.7rem;bottom:-.28em;font-family:var(--serif);font-size:6.6rem;line-height:1;font-weight:700;color:rgba(20,16,74,.055)}
+    .day:after{content:attr(data-day);position:absolute;right:1.05rem;bottom:-.08em;font-family:var(--serif);font-size:5.8rem;line-height:1;font-weight:700;color:rgba(20,16,74,.10);z-index:0;pointer-events:none}
     .day small{display:inline-flex;background:var(--parchment);color:var(--gold);border-radius:999px;padding:.28rem .65rem;font-size:.66rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.9rem}
     .day h3{position:relative;z-index:1;color:var(--navy);font-size:1rem;line-height:1.3;margin-bottom:.45rem}
     .day p{position:relative;z-index:1;color:var(--muted);font-size:.84rem;line-height:1.55}
@@ -154,7 +155,7 @@
     <div class="wrap nav">
       <a class="brand" href="index.html" aria-label="CAMP21 home">
         <img src="assets/logos/logo-camp21.png" alt="CAMP21 logo" />
-        <div class="brand-text">
+        <div>
           <div class="brand-title">CAMP<span>21</span></div>
         </div>
       </a>
@@ -186,7 +187,6 @@
           </div>
         </div>
         <div class="hero-photo reveal" style="transition-delay:.08s">
-          <img class="wau" src="assets/decor/wau-bulan.png" alt="" aria-hidden="true" />
           <div class="photo-card">
             <img src="assets/images/hero-kompleks-kraf.png" alt="Kompleks Kraf Kuala Lumpur with Malaysian heritage craft atmosphere" />
           </div>
@@ -231,7 +231,7 @@
         </div>
         <div class="portal-grid">
           <a href="pages/participants.html" class="portal-card featured reveal">
-            <img class="bg" src="assets/images/participants-corner.png" alt="" aria-hidden="true" />
+            <img class="bg" src="assets/craft-card/card-partipants-corner.png" onerror="this.src='assets/images/participants-corner.png'" alt="" aria-hidden="true" />
             <div class="portal-content">
               <img class="portal-icon" src="assets/icons/icon-participants.png" alt="" aria-hidden="true" />
               <h3>Participants</h3>
@@ -249,7 +249,7 @@
             </div>
           </a>
           <a href="pages/facilitators.html" class="portal-card reveal" style="transition-delay:.1s">
-            <img class="bg" src="assets/images/trainer-support.png" alt="" aria-hidden="true" />
+            <img class="bg" src="assets/images/facilitators-corner.png" onerror="this.src='assets/images/trainer-support.png'" alt="" aria-hidden="true" />
             <div class="portal-content">
               <img class="portal-icon" src="assets/icons/icon-groups.png" alt="" aria-hidden="true" />
               <h3>Facilitators</h3>
